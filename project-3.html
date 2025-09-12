@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Case Study of Nezuko Trading Platform</title>
+    <meta name="description" content="Case study page of Project" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .image-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+      .slider-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .slide {
+        min-width: 100%;
+        flex-shrink: 0;
+      }
+      .project-details__showcase-img-cont {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .slide img {
+        width: 100%;
+        height: 450px;
+        object-fit: contain;
+        display: block;
+        background: #f8f9fa;
+      }
+      .slider-nav {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .nav-dot.active {
+        background: rgba(255, 255, 255, 1);
+      }
+      .slider-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        z-index: 10;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+      .slider-arrows:hover {
+        opacity: 1;
+      }
+      .arrow-left {
+        left: 15px;
+      }
+      .arrow-right {
+        right: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__content">
+        <div class="header__logo-container">
+          <div class="header__logo-img-cont">
+            <img
+              src="./assets/img/avatar.jpg"
+              alt="Adams Afeez Logo Image"
+              class="header__logo-img"
+            />
+          </div>
+          <span class="header__logo-sub">Adams Afeez</span>
+        </div>
+        <div class="header__main">
+          <ul class="header__links">
+            <li class="header__link-wrapper">
+              <a href="./index.html" class="header__link">Home</a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#projects" class="header__link">Projects</a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#about" class="header__link">About</a>
+            </li>
+            <li class="header__link-wrapper">
+              <a href="./index.html#contact" class="header__link">Contact</a>
+            </li>
+          </ul>
+          <div class="header__main-ham-menu-cont">
+            <img
+              src="./assets/svg/ham-menu.svg"
+              alt="hamburger menu"
+              class="header__main-ham-menu"
+            />
+            <img
+              src="./assets/svg/ham-menu-close.svg"
+              alt="hamburger menu close"
+              class="header__main-ham-menu-close d-none"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="header__sm-menu">
+        <div class="header__sm-menu-content">
+          <ul class="header__sm-menu-links">
+            <li class="header__sm-menu-link">
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="header__sm-menu-link">
+              <a href="./index.html#projects">Projects</a>
+            </li>
+            <li class="header__sm-menu-link">
+              <a href="./index.html#about">About</a>
+            </li>
+            <li class="header__sm-menu-link">
+              <a href="./index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <section class="project-cs-hero">
+      <div class="project-cs-hero__content">
+        <h1 class="heading-primary">Nezuko Trading Platform</h1>
+        <div class="project-cs-hero__info">
+          <p class="text-primary">
+            An interactive onboarding and trading dashboard built with HTML, TailwindCSS, and Vanilla JavaScript. This project simulates a real-world trading platform with step-by-step onboarding, user validation, and a dynamic dashboard experience.
+          </p>
+        </div>
+        <div class="project-cs-hero__cta">
+          <a href="https://nezukoexchnage.netlify.app/" class="btn btn--bg" target="_blank">Live Link</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-details">
+      <div class="main-container">
+        <div class="project-details__content">
+          <div class="project-details__showcase-img-cont">
+            <div class="image-slider">
+              <div class="slider-container" id="sliderContainer">
+                <div class="slide">
+                  <img src="./assets/img/nezuko1.png" alt="Nezuko Trading Platform Screenshot 1" class="project-details__showcase-img"/>
+                </div>
+                <div class="slide">
+                  <img src="./assets/img/nezuko2.png" alt="Nezuko Trading Platform Screenshot 2" class="project-details__showcase-img"/>
+                </div>
+                <div class="slide">
+                  <img src="./assets/img/nezuko3.png" alt="Nezuko Trading Platform Screenshot 3" class="project-details__showcase-img"/>
+                </div>
+                <div class="slide">
+                  <img src="./assets/img/nezuko4.png" alt="Nezuko Trading Platform Screenshot 4" class="project-details__showcase-img"/>
+                </div>
+                <div class="slide">
+                  <img src="./assets/img/nezuko5.png" alt="Nezuko Trading Platform Screenshot 5" class="project-details__showcase-img"/>
+                </div>
+              </div>
+              <button class="slider-arrows arrow-left" id="prevBtn">❮</button>
+              <button class="slider-arrows arrow-right" id="nextBtn">❯</button>
+              <div class="slider-nav" id="sliderNav">
+                <span class="nav-dot active" data-slide="0"></span>
+                <span class="nav-dot" data-slide="1"></span>
+                <span class="nav-dot" data-slide="2"></span>
+                <span class="nav-dot" data-slide="3"></span>
+                <span class="nav-dot" data-slide="4"></span>
+              </div>
+            </div>
+          </div>
+          <div class="project-details__content-main">
+            <div class="project-details__desc">
+              <h3 class="project-details__content-title">Project Overview</h3>
+              <p class="project-details__desc-para">
+                This comprehensive trading platform simulation provides users with a complete onboarding experience that mirrors real-world financial applications. The multi-step registration process includes personal information collection, trading experience assessment, security setup with optional add-ons like 2FA and cold wallet integration, and a detailed summary review. The platform features dynamic country selection populated via API, form validation at each step, and security toggles that allow users to customize their trading experience based on their needs and preferences.
+              </p>
+              <p class="project-details__desc-para">
+                Built entirely with vanilla JavaScript, HTML, and TailwindCSS, the application demonstrates proficiency in DOM manipulation, API integration, and creating complex user flows without relying on frameworks. The dashboard dynamically updates to reflect user selections, calculating monthly costs based on chosen plans and add-ons. A smooth loading screen provides transition feedback before users enter their personalized dashboard. This project showcases the ability to create sophisticated web applications using fundamental web technologies while maintaining clean code architecture and responsive design principles.
+              </p>
+            </div>
+            <div class="project-details__tools-used">
+              <h3 class="project-details__content-title">Tools Used</h3>
+              <div class="skills">
+                <div class="skills__skill">HTML</div>
+                <div class="skills__skill">Tailwind CSS</div>
+                <div class="skills__skill">Vanilla JavaScript</div>
+                <div class="skills__skill">REST API</div>
+                <div class="skills__skill">GIT</div>
+                <div class="skills__skill">GitHub</div>
+                <div class="skills__skill">Netlify</div>
+                <div class="skills__skill">Figma</div>
+              </div>
+            </div>
+            <div class="project-details__links">
+              <h3 class="project-details__content-title">See Live</h3>
+              <a href="https://nezukoexchnage.netlify.app/" class="btn btn--med btn--theme project-details__links-btn" target="_blank">Live Link</a>
+              <a href="https://github.com/thegreatfeez/Nezuko" class="btn btn--med btn--theme-inv project-details__links-btn" target="_blank">Code Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="main-container">
+        <div class="main-footer__upper">
+          <div class="main-footer__row main-footer__row-1">
+            <h2 class="heading heading-sm main-footer__heading-sm">
+              <span>Social</span>
+            </h2>
+            <div class="main-footer__social-cont">
+              <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/thegreatfeez/">
+                <img class="main-footer__icon" src="./assets/img/linkedin-ico.png" alt="icon"/>
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://github.com/thegreatfeez">
+                <img class="main-footer__icon" src="./assets/img/github-ico.png" alt="icon"/>
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://x.com/thegreatfeez">
+                <img class="main-footer__icon" src="./assets/img/twitter-ico.png" alt="icon"/>
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://www.tiktok.com/@thegreatfeez">
+                <img class="main-footer__icon" src="./assets/svg/tiktok-full.svg" alt="icon"/>
+              </a>
+              <a target="_blank" rel="noreferrer" href="https://www.instagram.com/thegreatfeez/">
+                <img class="main-footer__icon main-footer__icon--mr-none" src="./assets/img/insta-ico.png" alt="icon"/>
+              </a>
+            </div>
+          </div>
+          <div class="main-footer__row main-footer__row-2">
+            <h4 class="heading heading-sm text-lt">Adams Afeez</h4>
+            <p class="main-footer__short-desc">
+              A frontend developer specializing in React and Tailwind CSS, currently expanding into Web3 development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      class ImageSlider {
+        constructor() {
+          this.currentSlide = 0;
+          this.totalSlides = 5;
+          this.sliderContainer = document.getElementById('sliderContainer');
+          this.navDots = document.querySelectorAll('.nav-dot');
+          this.prevBtn = document.getElementById('prevBtn');
+          this.nextBtn = document.getElementById('nextBtn');
+          this.autoSlideInterval = null;
+          
+          this.init();
+        }
+        
+        init() {
+          this.addEventListeners();
+          this.startAutoSlide();
+        }
+        
+        addEventListeners() {
+          this.prevBtn.addEventListener('click', () => {
+            this.pauseAutoSlide();
+            this.prevSlide();
+            this.startAutoSlide();
+          });
+          
+          this.nextBtn.addEventListener('click', () => {
+            this.pauseAutoSlide();
+            this.nextSlide();
+            this.startAutoSlide();
+          });
+          
+          this.navDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+              this.pauseAutoSlide();
+              this.goToSlide(index);
+              this.startAutoSlide();
+            });
+          });
+          
+          const slider = document.querySelector('.image-slider');
+          slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
+          slider.addEventListener('mouseleave', () => this.startAutoSlide());
+        }
+        
+        goToSlide(slideIndex) {
+          this.currentSlide = slideIndex;
+          const translateX = -slideIndex * 100;
+          this.sliderContainer.style.transform = `translateX(${translateX}%)`;
+          this.updateNavDots();
+        }
+        
+        nextSlide() {
+          this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+          this.goToSlide(this.currentSlide);
+        }
+        
+        prevSlide() {
+          this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+          this.goToSlide(this.currentSlide);
+        }
+        
+        updateNavDots() {
+          this.navDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+          });
+        }
+        
+        startAutoSlide() {
+          this.autoSlideInterval = setInterval(() => {
+            this.nextSlide();
+          }, 4000);
+        }
+        
+        pauseAutoSlide() {
+          if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+          }
+        }
+      }
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        new ImageSlider();
+      });
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
