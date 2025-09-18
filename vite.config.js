@@ -1,15 +1,14 @@
-import {defineConfig} from "vite"
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [],
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
-        project1: 'project-1.html',
-        project2: 'project-2.html', 
-        project3: 'project-3.html'
+        main: resolve(__dirname, 'index.html'),
+        project: resolve(__dirname, 'project.html')
       }
     }
-  }
+  },
+  base: './'
 })
