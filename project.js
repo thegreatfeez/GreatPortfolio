@@ -47,42 +47,139 @@ class ProjectRenderer {
         const images = this.currentProject.images;
 
         if (images.length === 1) {
-            
             imageShowcase.innerHTML = `
                 <img src="${images[0]}" alt="${this.currentProject.title} Image" class="project-details__showcase-img"/>
             `;
         } else {
-           
-            this.createImageSlider(imageShowcase, images);
+            this.createSimpleSlider(imageShowcase, images);
         }
     }
 
-    createImageSlider(container, images) {
+    createSimpleSlider(container, images) {
+        // Create a much simpler slider structure
         const sliderHTML = `
-            <div class="image-slider">
-                <div class="slider-container" id="sliderContainer">
-                    ${images.map((img, index) => `
-                        <div class="slide">
-                            <img src="${img}" alt="${this.currentProject.title} Screenshot ${index + 1}" class="project-details__showcase-img"/>
-                        </div>
-                    `).join('')}
+            <div class="simple-slider">
+                <div class="slider-viewport">
+                    <div class="slider-track" id="sliderTrack">
+                        ${images.map((img, index) => `
+                            <div class="slider-slide">
+                                <img src="${img}" alt="${this.currentProject.title} Screenshot ${index + 1}" />
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
-                <button class="slider-arrows arrow-left" id="prevBtn">❮</button>
-                <button class="slider-arrows arrow-right" id="nextBtn">❯</button>
-                <div class="slider-nav" id="sliderNav">
+                <button class="slider-btn slider-prev" id="prevBtn">❮</button>
+                <button class="slider-btn slider-next" id="nextBtn">❯</button>
+                <div class="slider-dots" id="sliderDots">
                     ${images.map((_, index) => `
-                        <span class="nav-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>
+                        <span class="slider-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>
                     `).join('')}
                 </div>
             </div>
+            
+            <style>
+                .simple-slider {
+                    position: relative;
+                    width: 100%;
+                    background: var(--glass-bg);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid var(--glass-border);
+                    border-radius: 20px;
+                    padding: 20px;
+                    overflow: hidden;
+                }
+                
+                .slider-viewport {
+                    width: 100%;
+                    overflow: hidden;
+                    border-radius: 15px;
+                }
+                
+                .slider-track {
+                    display: flex;
+                    width: ${images.length * 100}%;
+                    transition: transform 0.5s ease;
+                    transform: translateX(0%);
+                }
+                
+                .slider-slide {
+                    width: ${100 / images.length}%;
+                    flex-shrink: 0;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                }
+                
+                .slider-slide img {
+                    width: 100%;
+                    height: 400px;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    background: #16213e;
+                    display: block;
+                }
+                
+                .slider-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(102, 126, 234, 0.8);
+                    color: white;
+                    border: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    font-size: 18px;
+                    cursor: pointer;
+                    z-index: 10;
+                    transition: all 0.3s ease;
+                }
+                
+                .slider-btn:hover {
+                    background: rgba(102, 126, 234, 1);
+                    transform: translateY(-50%) scale(1.1);
+                }
+                
+                .slider-prev {
+                    left: 30px;
+                }
+                
+                .slider-next {
+                    right: 30px;
+                }
+                
+                .slider-dots {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                    margin-top: 20px;
+                }
+                
+                .slider-dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.5);
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+                
+                .slider-dot.active {
+                    background: #667eea;
+                    transform: scale(1.2);
+                }
+                
+                .slider-dot:hover {
+                    background: rgba(255, 255, 255, 0.8);
+                }
+            </style>
         `;
         
         container.innerHTML = sliderHTML;
-        this.initializeSlider(images.length);
+        this.initializeSimpleSlider(images.length);
     }
 
-    initializeSlider(totalSlides) {
-        this.slider = new ImageSlider(totalSlides);
+    initializeSimpleSlider(totalSlides) {
+        this.slider = new SimpleImageSlider(totalSlides);
     }
 
     renderDescription() {
@@ -113,13 +210,12 @@ class ProjectRenderer {
     }
 }
 
-
-class ImageSlider {
+class SimpleImageSlider {
     constructor(totalSlides) {
         this.currentSlide = 0;
         this.totalSlides = totalSlides;
-        this.sliderContainer = document.getElementById('sliderContainer');
-        this.navDots = document.querySelectorAll('.nav-dot');
+        this.sliderTrack = document.getElementById('sliderTrack');
+        this.dots = document.querySelectorAll('.slider-dot');
         this.prevBtn = document.getElementById('prevBtn');
         this.nextBtn = document.getElementById('nextBtn');
         this.autoSlideInterval = null;
@@ -149,7 +245,7 @@ class ImageSlider {
             });
         }
         
-        this.navDots.forEach((dot, index) => {
+        this.dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 this.pauseAutoSlide();
                 this.goToSlide(index);
@@ -157,7 +253,8 @@ class ImageSlider {
             });
         });
         
-        const slider = document.querySelector('.image-slider');
+        // Pause on hover
+        const slider = document.querySelector('.simple-slider');
         if (slider) {
             slider.addEventListener('mouseenter', () => this.pauseAutoSlide());
             slider.addEventListener('mouseleave', () => this.startAutoSlide());
@@ -166,9 +263,13 @@ class ImageSlider {
     
     goToSlide(slideIndex) {
         this.currentSlide = slideIndex;
-        const translateX = -slideIndex * 100;
-        this.sliderContainer.style.transform = `translateX(${translateX}%)`;
-        this.updateNavDots();
+        const translateX = -(slideIndex * (100 / this.totalSlides));
+        
+        if (this.sliderTrack) {
+            this.sliderTrack.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        this.updateDots();
     }
     
     nextSlide() {
@@ -181,13 +282,14 @@ class ImageSlider {
         this.goToSlide(this.currentSlide);
     }
     
-    updateNavDots() {
-        this.navDots.forEach((dot, index) => {
+    updateDots() {
+        this.dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === this.currentSlide);
         });
     }
     
     startAutoSlide() {
+        this.pauseAutoSlide();
         this.autoSlideInterval = setInterval(() => {
             this.nextSlide();
         }, 4000);
@@ -200,7 +302,6 @@ class ImageSlider {
         }
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const projectRenderer = new ProjectRenderer();
