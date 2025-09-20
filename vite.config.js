@@ -1,15 +1,10 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
+// https://vite.dev/config/
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        project: resolve(__dirname, 'project.html')
-      }
-    }
-  },
-  base: './',
-  publicDir: 'public',
+  plugins: [
+    tailwindcss(),
+    react()],
 })
