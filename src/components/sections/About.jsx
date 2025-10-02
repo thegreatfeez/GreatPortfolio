@@ -1,5 +1,5 @@
 import React from 'react';
-import SkillTag from './SkillTag.jsx';
+import SkillTag from '../UI/SkillTag.jsx';
 
 const About = () => {
   const skills = ["HTML", "CSS", "JavaScript", "React", "Git", "Figma", "Tailwind CSS", "Bootstrap", "Solidity (beginner)"];

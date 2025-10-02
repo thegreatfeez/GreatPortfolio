@@ -1,8 +1,9 @@
-// In App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header.jsx';
 import Footer from './components/layout/Footer.jsx';
 import HomePage from './pages/HomePage.jsx';
-import ProjectDetail from './pages/ProjectDetail.jsx';
+import ProjectDetail from "./pages/ProjectDetail.jsx";
 import { AppProvider } from './context/AppContext.jsx';
 
 const App = () => {

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { useAppContext } from './AppContext.jsx';
-import ImageSlider from './ImageSlider.jsx';
-import SkillTag from './SkillTag.jsx';
+import { useAppContext } from '../context/AppContext.jsx';
+import ImageSlider from '../components/UI/ImageSlider.jsx';
+import SkillTag from '../components/UI/SkillTag.jsx';
 
 const ProjectDetail = () => {
   const { id } = useParams();

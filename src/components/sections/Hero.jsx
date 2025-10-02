@@ -1,6 +1,5 @@
 import React from 'react';
-import SocialIcon from '../ui/SocialIcon.jsx';
-
+import SocialIcon from '../UI/SocialIcon.jsx';
 const Hero = () => {
   return (
     <section className="relative min-h-screen max-h-[120rem] overflow-hidden bg-gradient-radial from-slate-800 to-slate-900">

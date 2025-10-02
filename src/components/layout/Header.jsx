@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAppContext } from './AppContext.jsx';
+import { useAppContext } from '../../context/AppContext.jsx';
 
 const Header = () => {
   const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useAppContext();

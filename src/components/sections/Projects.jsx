@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppContext } from './AppContext.jsx';
+import { useAppContext } from '../../context/AppContext.jsx';
 import ProjectCard from './ProjectCard.jsx';
 
 const Projects = () => {
