@@ -114,74 +114,8 @@
           </span>
         </h2>
 
-        <div class="projects__content">
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/img/cryptotenzie.png" alt="Software Screenshot" class="projects__row-img" loading="lazy"/>
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">CryptoTenzie</h3>
-              <p class="projects__row-content-desc">
-                A fun React based dice game where players roll to match all dice while racing against time and roll limits, and earn virtual crypto tokens in the process.
-              </p>
-              <a href="./project-1.html" class="btn btn--med btn--theme dynamicBgClr">Learn more</a>
-            </div>
-          </div>
-
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/img/moontask.png" alt="Software Screenshot" class="projects__row-img" loading="lazy"/>
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">MoonTask</h3>
-              <p class="projects__row-content-desc">
-                A sleek and intuitive task management application designed specifically for traders to track their trading activities, alerts, and research tasks.
-              </p>
-              <a href="./project-2.html" class="btn btn--med btn--theme dynamicBgClr">Learn more</a>
-            </div>
-          </div>
-
-          <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/img/nezuko.png" alt="Software Screenshot" class="projects__row-img" loading="lazy"/>
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">Nezuko</h3>
-              <p class="projects__row-content-desc">
-                An interactive onboarding and trading dashboard built with HTML, TailwindCSS, and Vanilla JavaScript. This project simulates a real-world trading platform with step-by-step onboarding, user validation, and a dynamic dashboard experience.
-              </p>
-              <a href="./project-3.html" class="btn btn--med btn--theme dynamicBgClr">Learn more</a>
-            </div>
-          </div>
-
-                    <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/img/lingualeap.png" alt="LinguaLeap Screenshot" class="projects__row-img" loading="lazy"/>
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">LinguaLeap</h3>
-              <p class="projects__row-content-desc">
-                An intelligent flashcard application designed to help language learners master new vocabulary through custom decks, interactive study sessions, and spaced repetition techniques.
-              </p>
-              <a href="./project-4.html" class="btn btn--med btn--theme dynamicBgClr">Learn more</a>
-            </div>
-          </div>
-
-                    <div class="projects__row">
-            <div class="projects__row-img-cont">
-              <img src="./assets/img/coinkity.png" alt="CoinKitty Screenshot" class="projects__row-img" loading="lazy"/>
-            </div>
-            <div class="projects__row-content">
-              <h3 class="projects__row-content-title">CoinKitty</h3>
-              <p class="projects__row-content-desc">
-                A modern cryptocurrency tracking and portfolio management application that provides real-time market data, portfolio analytics, and secure user authentication for crypto investors.
-              </p>
-              <a href="./project-5.html" class="btn btn--med btn--theme dynamicBgClr">Learn more</a>
-            </div>
-          </div>
-
-
-
+        <div class="projects__content" id="projectsContainer">
+          <!-- Projects will be dynamically loaded here -->
         </div>
       </div>
     </section>
@@ -267,6 +201,9 @@
         </div>
       </div>
     </footer>
+    
+    <script src="./projects-data.js"></script>
+    <script src="./home.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
