@@ -4,26 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Case Study of CryptoTenzie</title>
+    <title>Project Case Study</title>
     <meta name="description" content="Case study page of Project" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <header class="header">
       <div class="header__content">
         <div class="header__logo-container">
           <div class="header__logo-img-cont">
-            <img
-              src="./assets/img/avatar.jpg"
-              alt="Adams Afeez Logo Image"
-              class="header__logo-img"
-            />
+            <img src="./assets/img/avatar.jpg" alt="Adams Afeez Logo Image" class="header__logo-img"/>
           </div>
           <span class="header__logo-sub">Adams Afeez</span>
         </div>
@@ -70,15 +63,12 @@
 
     <section class="project-cs-hero">
       <div class="project-cs-hero__content">
-        <h1 class="heading-primary">CryptoTenzie</h1>
+        <h1 class="heading-primary" id="projectTitle"></h1>
         <div class="project-cs-hero__info">
-          <p class="text-primary">
-            A fun React based dice game where players roll to match all dice while racing against time and roll limits,
-            and earn virtual crypto tokens in the process.
-          </p>
+          <p class="text-primary" id="projectShortDesc"></p>
         </div>
         <div class="project-cs-hero__cta">
-          <a href="https://cryptotenzie.netlify.app/" class="btn btn--bg" target="_blank">Live Link</a>
+          <a href="#" id="heroLiveLink" class="btn btn--bg" target="_blank">Live Link</a>
         </div>
       </div>
     </section>
@@ -86,36 +76,23 @@
     <section class="project-details">
       <div class="main-container">
         <div class="project-details__content">
-          <div class="project-details__showcase-img-cont">
-            <img src="./assets/img/cryptotenzie.png" alt="CryptoTenzie Image" class="project-details__showcase-img"/>
-          </div>
+          <div class="project-details__showcase-img-cont" id="imageContainer"></div>
+          
           <div class="project-details__content-main">
             <div class="project-details__desc">
               <h3 class="project-details__content-title">Project Overview</h3>
-              <p class="project-details__desc-para">
-                This interactive dice game challenges players to achieve matching numbers across all dice within strict time and roll limits. The game features an intuitive hold mechanism that lets players lock desired dice values while continuing to roll the others, creating strategic depth as players must decide which dice to keep and when to risk additional rolls. Players earn crypto-themed token points for each successful completion, with a visual airdrop progress bar tracking their journey toward larger rewards. The streak system adds an extra layer of engagement by rewarding consistent performance and encouraging players to maintain their winning momentum.
-              </p>
-              <p class="project-details__desc-para">
-                Built with React 18 and styled using Tailwind CSS, the application delivers a smooth, responsive gaming experience across all devices. The game leverages localStorage to persist player progress, ensuring that earned points, streaks, and airdrop progress carry over between sessions. The clean, modern interface emphasizes usability while incorporating subtle crypto-themed visual elements that enhance the reward system's appeal. This project demonstrates proficiency in state management, local data persistence, and creating engaging user interactions within a time-pressured gaming environment.
-              </p>
+              <div id="overviewContainer"></div>
             </div>
+            
             <div class="project-details__tools-used">
               <h3 class="project-details__content-title">Tools Used</h3>
-              <div class="skills">
-                <div class="skills__skill">HTML</div>
-                <div class="skills__skill">Tailwind CSS</div>
-                <div class="skills__skill">JavaScript</div>
-                <div class="skills__skill">React</div>
-                <div class="skills__skill">GIT</div>
-                <div class="skills__skill">GitHub</div>
-                <div class="skills__skill">Netlify</div>
-                <div class="skills__skill">Figma</div>
-              </div>
+              <div class="skills" id="toolsContainer"></div>
             </div>
+            
             <div class="project-details__links">
               <h3 class="project-details__content-title">See Live</h3>
-              <a href="https://cryptotenzie.netlify.app/" class="btn btn--med btn--theme project-details__links-btn" target="_blank">Live Link</a>
-              <a href="https://github.com/thegreatfeez/cryptoTenzie?tab=readme-ov-file" class="btn btn--med btn--theme-inv project-details__links-btn" target="_blank">Code Link</a>
+              <a href="#" id="liveLink" class="btn btn--med btn--theme project-details__links-btn" target="_blank">Live Link</a>
+              <a href="#" id="codeLink" class="btn btn--med btn--theme-inv project-details__links-btn" target="_blank">Code Link</a>
             </div>
           </div>
         </div>
@@ -156,6 +133,9 @@
         </div>
       </div>
     </footer>
+
+    <script src="./projects-data.js"></script>
+    <script src="./project.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
