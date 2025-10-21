@@ -50,23 +50,9 @@ const projectsData = [
     liveLink: "https://nezukoexchnage.netlify.app/",
     codeLink: "https://github.com/thegreatfeez/Nezuko"
   },
+ 
   {
     id: 4,
-    title: "LinguaLeap",
-    shortDesc: "An intelligent flashcard application designed to help language learners master new vocabulary through custom decks, interactive study sessions, and spaced repetition techniques.",
-    thumbnail: "./assets/img/lingualeap.png",
-    images: ["./assets/img/lingualeap.png"],
-    hasSlider: false,
-    overview: [
-      "LinguaLeap is a comprehensive language learning platform that enables users to create custom flashcard decks, organize vocabulary by language or topic, and study efficiently through an interactive flip-card system. The application features robust deck management capabilities, allowing users to add, edit, and delete flashcards with ease.",
-      "Built with React and leveraging Context API for state management, the application delivers seamless real-time updates across all components. Styled with Tailwind CSS, it offers a clean, modern interface that's fully responsive across devices. The app includes a simple authentication system, protected routes, and multiple view modes for optimal organization."
-    ],
-    tools: ["React", "Tailwind CSS", "JavaScript", "React Router", "Context API", "Vite", "Lucide React", "GIT", "GitHub", "Netlify"],
-    liveLink: "https://linguale.netlify.app/",
-    codeLink: "https://github.com/thegreatfeez/LinguaLeap"
-  },
-  {
-    id: 5,
     title: "CoinKitty",
     shortDesc: "A modern cryptocurrency tracking and portfolio management application that provides real-time market data, portfolio analytics, and secure user authentication for crypto investors.",
     thumbnail: "./assets/img/coinkity.png",
@@ -83,5 +69,21 @@ const projectsData = [
     tools: ["React", "Tailwind CSS", "JavaScript", "React Router", "Firebase", "Firebase Auth", "Vite", "React Icons", "Lucide React", "GIT", "GitHub", "Netlify"],
     liveLink: "https://coinkitty.netlify.app/",
     codeLink: "https://github.com/thegreatfeez/Coinkitty"
-  }
+  },
+
+  {
+  id: 5,
+  title: "HoldVault",
+  shortDesc: "A decentralized Ethereum savings vault application on Base Sepolia that enables users to create time-locked savings goals, securely deposit ETH, and track progress towards financial milestones.",
+  thumbnail: "./assets/img/holdvaultthumb.png",
+  images: ["./assets/img/holdvault.png"],
+  hasSlider: false,
+  overview: [
+    "HoldVault is a Web3 savings platform that combines smart contract security with an intuitive user interface. Users can create multiple savings vaults with custom ETH goals and lock durations, ensuring disciplined savings through blockchain-enforced time locks. The application features real-time progress tracking, transaction history, and the unique ability to reactivate completed vaults for new savings cycles.",
+    "Built with React and TypeScript, the application leverages Wagmi and Viem for seamless Web3 integration, providing users with a modern dApp experience. The smart contract, deployed on Base Sepolia, implements secure deposit and withdrawal logic with custom error handling and event emissions. Styled with Tailwind CSS, the interface features responsive layouts, interactive progress visualizations, and a tabbed dashboard for managing active and completed vaults."
+  ],
+  tools: ["React", "TypeScript", "Solidity", "Wagmi", "Viem", "Tailwind CSS", "React Router", "Base Sepolia", "Ethers.js", "Vite", "GIT", "GitHub"],
+  liveLink: "https://holdvault.netlify.app/",
+  codeLink: "https://github.com/thegreatfeez/HodlVault"
+}
 ];
