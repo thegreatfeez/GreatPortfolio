@@ -72,19 +72,18 @@ const projectsData = [
   },
 
   {
-  id: 5,
-  title: "HoldVault",
-  shortDesc: "A decentralized Ethereum savings vault application on Base Sepolia that enables users to create time-locked savings goals, securely deposit ETH, and track progress towards financial milestones.",
-  thumbnail: "./assets/img/holdvaultthumb.png",
-  images: ["./assets/img/holdvault.png"],
-  hasSlider: false,
-  overview: [
-    "HoldVault is a Web3 savings platform that combines smart contract security with an intuitive user interface. Users can create multiple savings vaults with custom ETH goals and lock durations, ensuring disciplined savings through blockchain-enforced time locks. The application features real-time progress tracking, transaction history, and the unique ability to reactivate completed vaults for new savings cycles.",
-    "Built with React and TypeScript, the application leverages Wagmi and Viem for seamless Web3 integration, providing users with a modern dApp experience. The smart contract, deployed on Base Sepolia, implements secure deposit and withdrawal logic with custom error handling and event emissions. Styled with Tailwind CSS, the interface features responsive layouts, interactive progress visualizations, and a tabbed dashboard for managing active and completed vaults."
-  ],
-  tools: ["React", "TypeScript", "Solidity", "Wagmi", "Viem", "Tailwind CSS", "React Router", "Base Sepolia", "Ethers.js", "Vite", "GIT", "GitHub"],
-  liveLink: "https://holdvault.netlify.app/",
-  codeLink: "https://github.com/thegreatfeez/HodlVault"
-}
+    id: 5,
+    title: "HoldVault",
+    shortDesc: "A decentralized Ethereum savings vault application on Base Sepolia that enables users to create time-locked savings goals, securely deposit ETH, and track progress towards financial milestones.",
+    thumbnail: "./assets/img/holdvaultthumb.png",
+    images: ["./assets/img/holdvault.png"],
+    hasSlider: false,
+    overview: [
+      "HoldVault is a Web3 savings platform that combines smart contract security with an intuitive user interface. Users can create multiple savings vaults with custom ETH goals and lock durations, ensuring disciplined savings through blockchain-enforced time locks. The application features real-time progress tracking, transaction history, and the unique ability to reactivate completed vaults for new savings cycles.",
+      "Built with React and TypeScript, the application leverages Wagmi and Viem for seamless Web3 integration, providing users with a modern dApp experience. The smart contract, deployed on Base Sepolia, implements secure deposit and withdrawal logic with custom error handling and event emissions. Styled with Tailwind CSS, the interface features responsive layouts, interactive progress visualizations, and a tabbed dashboard for managing active and completed vaults."
+    ],
+    tools: ["React", "TypeScript", "Solidity", "Wagmi", "Viem", "Tailwind CSS", "React Router", "Base Sepolia", "Ethers.js", "Vite", "GIT", "GitHub"],
+    liveLink: "https://holdvault.netlify.app/",
+    codeLink: "https://github.com/thegreatfeez/HodlVault"
+  }
 ];
-export default projectsData;

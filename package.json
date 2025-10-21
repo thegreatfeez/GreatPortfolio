@@ -1,14 +1,9 @@
 {
-  "name": "scrim-s02cito",
-  "description": "https://scrimba.com/s02cito/s09atleqj4/head",
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Adams Afeez Portfolio",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vite": "latest"
-  },
-  "devDependencies": {}
+    "dev": "echo 'Open index.html in your browser'",
+    "build": "echo 'No build step needed for static site'"
+  }
 }
