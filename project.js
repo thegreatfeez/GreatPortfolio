@@ -1,3 +1,5 @@
+import { projectsData } from './projects-data.js';
+
 class ImageSlider {
   constructor() {
     this.currentSlide = 0;

@@ -1,3 +1,5 @@
+import { projectsData } from './projects-data.js';
+
 function loadProjects() {
   const projectsContainer = document.getElementById('projectsContainer');
   

@@ -87,3 +87,4 @@ const projectsData = [
   codeLink: "https://github.com/thegreatfeez/HodlVault"
 }
 ];
+export default projectsData;
