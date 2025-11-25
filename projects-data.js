@@ -33,7 +33,7 @@ const projectsData = [
   id: 3,
   title: "LumeLink",
   shortDesc: "A decentralized creator subscription platform powered by Base blockchain and Chainlink VRF. Features weekly spotlight system, IPFS-stored profiles, and transparent subscription management with 90% creator revenue share.",
-  thumbnail: "./assets/img/lumlinkthumb.png",
+  thumbnail: ["./assets/img/lumlinkthumb.png"],
   images: ["./assets/img/lumlink.png"],
   hasSlider: false,
   overview: [
