@@ -29,27 +29,40 @@ const projectsData = [
     liveLink: "https://moon-task.vercel.app/",
     codeLink: "https://github.com/thegreatfeez/MoonTask"
   },
-  {
-    id: 3,
-    title: "Nezuko",
-    shortDesc: "An interactive onboarding and trading dashboard built with HTML, TailwindCSS, and Vanilla JavaScript. This project simulates a real-world trading platform with step-by-step onboarding, user validation, and a dynamic dashboard experience.",
-    thumbnail: "./assets/img/nezuko.png",
-    images: [
-      "./assets/img/nezuko1.png",
-      "./assets/img/nezuko2.png",
-      "./assets/img/nezuko3.png",
-      "./assets/img/nezuko4.png",
-      "./assets/img/nezuko5.png"
-    ],
-    hasSlider: true,
-    overview: [
-      "This comprehensive trading platform simulation provides users with a complete onboarding experience that mirrors real-world financial applications. The multi-step registration process includes personal information collection, trading experience assessment, security setup with optional add-ons like 2FA and cold wallet integration, and a detailed summary review. The platform features dynamic country selection populated via API, form validation at each step, and security toggles that allow users to customize their trading experience based on their needs and preferences.",
-      "Built entirely with vanilla JavaScript, HTML, and TailwindCSS, the application demonstrates proficiency in DOM manipulation, API integration, and creating complex user flows without relying on frameworks. The dashboard dynamically updates to reflect user selections, calculating monthly costs based on chosen plans and add-ons. A smooth loading screen provides transition feedback before users enter their personalized dashboard. This project showcases the ability to create sophisticated web applications using fundamental web technologies while maintaining clean code architecture and responsive design principles."
-    ],
-    tools: ["HTML", "Tailwind CSS", "Vanilla JavaScript", "REST API", "GIT", "GitHub", "Netlify", "Figma"],
-    liveLink: "https://nezukoexchnage.netlify.app/",
-    codeLink: "https://github.com/thegreatfeez/Nezuko"
-  },
+ {
+  id: 3,
+  title: "LumeLink",
+  shortDesc: "A decentralized creator subscription platform powered by Base blockchain and Chainlink VRF. Features weekly spotlight system, IPFS-stored profiles, and transparent subscription management with 90% creator revenue share.",
+  thumbnail: "./assets/img/lumlinkthumb.png",
+  images: ["./assets/img/lumlink.png"],
+  hasSlider: false,
+  overview: [
+    "LumeLink is a next-generation Web3 subscription platform that revolutionizes how creators connect with their audiences through blockchain technology. Built on Base Layer 2 network, the platform implements a unique weekly spotlight system powered by Chainlink VRF for provably fair and transparent creator discovery. Creators can set their own monthly subscription prices (minimum 0.01 ETH) and retain 90% of subscription fees, with only 10% going to platform operations. The platform features IPFS-stored creator profiles with integrated social media links, automated payment settlement directly to creator wallets, and a weighted selection algorithm that gives creators who haven't been featured recently higher chances of spotlight placement.",
+    "The technical architecture leverages four core smart contracts deployed on Base Sepolia: CreatorRegistry for profile management, SubscriptionManager for payment handling, SpotlightSelector implementing Chainlink VRF v2.5 for random selection, and Treasury for automated fee collection. The frontend is built with React 18, TypeScript, and Tailwind CSS, featuring seamless Web3 integration through wagmi, viem, and RainbowKit for wallet connectivity. The platform provides separate dashboard experiences for users, creators, and platform owners, with comprehensive security features including ReentrancyGuard protection, access control mechanisms, and input validation. Gas-optimized contracts ensure efficient transactions, while the multi-step user flows guide creators through registration, profile setup, and subscription management with intuitive interfaces."
+  ],
+  tools: [
+    "Solidity 0.8.30",
+    "Foundry",
+    "Base L2",
+    "Chainlink VRF",
+    "React 18",
+    "TypeScript",
+    "Tailwind CSS",
+    "wagmi",
+    "viem",
+    "RainbowKit",
+    "IPFS",
+    "Pinata",
+    "TanStack Query",
+    "React Router v6",
+    "Netlify",
+    "OpenZeppelin",
+    "GIT",
+    "GitHub"
+  ],
+  liveLink: "https://lumlnk.netlify.app/",
+  codeLink: "https://github.com/thegreatfeez/LumeLink"
+},
  
   {
     id: 4,
