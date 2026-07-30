@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import {
   MdDiamond,
   MdGridView,
@@ -8,8 +9,14 @@ import {
   MdVerifiedUser,
 } from 'react-icons/md'
 import Footer from '../components/Footer'
+import MarqueeBand from '../components/MarqueeBand'
 import Navbar from '../components/Navbar'
 import { auditsPage } from '../data.ts'
+
+const tickerItems = [
+  ...new Set(auditsPage.audits.map((audit) => audit.category)),
+  ...auditsPage.highlights.map((highlight) => highlight.title),
+]
 
 const auditIconMap = {
   token: MdToken,
@@ -34,9 +41,16 @@ function Audits() {
   const audits = auditsPage.audits
 
   return (
-    <div className="min-h-screen bg-[#0c0e17] text-[#e1e4ff]">
+    <div className="relative min-h-screen overflow-hidden bg-[#0c0e17] text-[#e1e4ff]">
+      <motion.div
+        animate={{ x: [0, 25, -20, 0], y: [0, -15, 20, 0], scale: [1, 1.08, 0.94, 1] }}
+        className="pointer-events-none absolute right-0 top-24 -z-10 h-[420px] w-[420px] rounded-full bg-[#bb5551]/10 blur-[120px]"
+        transition={{ duration: 17, repeat: Infinity, ease: 'easeInOut' }}
+      />
       <Navbar />
-      <main className="mx-auto min-h-screen max-w-7xl px-8 pb-20 pt-32">
+      <main className="pt-20">
+        <MarqueeBand items={tickerItems} />
+        <div className="mx-auto min-h-screen max-w-7xl px-8 pb-20 pt-12">
         <header className="mb-12 grid items-end gap-8 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <h1 className="mb-6 font-['Space_Grotesk'] text-5xl font-bold leading-[1.1] tracking-tight text-[#e1e4ff] md:text-7xl">
@@ -49,6 +63,14 @@ function Audits() {
             <p className="max-w-2xl text-lg leading-relaxed text-[#a3a9cc]">
               {auditsPage.description}
             </p>
+          </div>
+          <div className="flex items-center gap-2 text-[0.6875rem] uppercase tracking-[0.2em] text-[#6debdf] lg:col-span-4 lg:justify-end">
+            <motion.span
+              animate={{ opacity: [1, 0.35, 1] }}
+              className="h-2 w-2 rounded-full bg-[#6debdf] shadow-[0_0_8px_rgba(110,235,223,0.5)]"
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            {auditsPage.networkStatus}
           </div>
         </header>
 
@@ -88,9 +110,13 @@ function Audits() {
                     audit.complexity.charAt(0).toUpperCase() +
                     audit.complexity.slice(1)
                   return (
-                    <tr
+                    <motion.tr
                       className="group transition-colors duration-300 hover:bg-[#191e35]/40"
+                      initial={{ opacity: 0, y: 16 }}
                       key={`${audit.name}-${index}`}
+                      transition={{ duration: 0.4, delay: index * 0.08, ease: 'easeOut' }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                     >
                       <td className="px-8 py-8">
                         <div className="flex items-center gap-4">
@@ -119,7 +145,8 @@ function Audits() {
                         <span
                           className={`flex w-fit items-center gap-2 rounded-full border bg-[#1e2440] px-3 py-1 text-[0.625rem] uppercase tracking-widest ${complexityStyles[audit.complexity]}`}
                         >
-                          <span
+                          <motion.span
+                            animate={{ opacity: [1, 0.35, 1] }}
                             className={`h-1.5 w-1.5 rounded-full ${
                               audit.complexity === 'high'
                                 ? 'bg-[#bb5551]'
@@ -127,6 +154,7 @@ function Audits() {
                                   ? 'bg-[#bdc7dc]'
                                   : 'bg-[#6debdf]'
                             }`}
+                            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                           />
                           {complexityLabel}
                         </span>
@@ -159,7 +187,7 @@ function Audits() {
                           </span>
                         )}
                       </td>
-                    </tr>
+                    </motion.tr>
                   )
                 })}
               </tbody>
@@ -168,23 +196,35 @@ function Audits() {
         </section>
 
         <section className="mt-24 grid gap-12 md:grid-cols-3">
-          {auditsPage.highlights.map((highlight) => {
+          {auditsPage.highlights.map((highlight, index) => {
             const Icon = highlightIconMap[highlight.icon]
             return (
-              <div className="space-y-6" key={highlight.title}>
-                <div className="text-[#3d4759]">
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, y: 24 }}
+                key={highlight.title}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+                viewport={{ once: true, amount: 0.3 }}
+                whileInView={{ opacity: 1, y: 0 }}
+              >
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  className="text-[#3d4759]"
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: index * 0.3 }}
+                >
                   <Icon className="text-4xl" />
-                </div>
+                </motion.div>
                 <h3 className="font-['Space_Grotesk'] text-xl font-bold">
                   {highlight.title}
                 </h3>
                 <p className="text-sm leading-relaxed text-[#a3a9cc]">
                   {highlight.description}
                 </p>
-              </div>
+              </motion.div>
             )
           })}
         </section>
+        </div>
       </main>
       <Footer />
     </div>

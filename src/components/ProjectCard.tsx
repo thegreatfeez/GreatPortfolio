@@ -1,12 +1,20 @@
+import { motion } from 'framer-motion'
 import type { Project } from '../data.ts'
 
 type ProjectCardProps = {
   project: Project
+  index: number
 }
 
-function ProjectCard({ project }: ProjectCardProps) {
+function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <article className="group flex flex-col gap-3">
+    <motion.article
+      className="group flex flex-col gap-3"
+      initial={{ opacity: 0, y: 24 }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+      viewport={{ once: true, amount: 0.3 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="relative aspect-video overflow-hidden rounded-2xl bg-[#1e2440]">
         <img
           className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
@@ -31,7 +39,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       <p className="text-sm leading-relaxed text-[#a3a9cc]">
         {project.description}
       </p>
-    </article>
+    </motion.article>
   )
 }
 

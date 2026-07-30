@@ -88,6 +88,15 @@ export const navLinks: NavLink[] = [
   { href: '/audits', label: 'Audits' },
 ]
 
+export const tickerItems: string[] = [
+  'Smart Contract Security',
+  'Solidity Development',
+  'DeFi Protocols',
+  'Web3',
+  'Web2',
+  'AI-Native Development',
+]
+
 export const capabilities: Capability[] = [
   { label: 'Smart Contract Security', value: 'Active' },
   { label: 'Solidity Development', value: 'Builder' },

@@ -13,8 +13,8 @@ function Spotlight() {
         </p>
       </div>
       <div className="grid gap-6 md:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+        {projects.map((project, index) => (
+          <ProjectCard index={index} key={project.title} project={project} />
         ))}
       </div>
     </section>

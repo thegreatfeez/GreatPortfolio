@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import {
   MdAccountBalance,
   MdArrowOutward,
@@ -6,8 +7,13 @@ import {
   MdSecurity,
 } from 'react-icons/md'
 import Footer from '../components/Footer'
+import MarqueeBand from '../components/MarqueeBand'
 import Navbar from '../components/Navbar'
 import { projectsPage } from '../data.ts'
+
+const tickerItems = Array.from(
+  new Set(projectsPage.projects.flatMap((project) => project.tags)),
+)
 
 const projectIconMap = {
   code: MdCode,
@@ -38,10 +44,17 @@ function Projects() {
   const projects = projectsPage.projects
 
   return (
-    <div className="min-h-screen bg-[#0c0e17] text-[#e1e4ff]">
+    <div className="relative min-h-screen overflow-hidden bg-[#0c0e17] text-[#e1e4ff]">
+      <motion.div
+        animate={{ x: [0, -25, 20, 0], y: [0, 20, -15, 0], scale: [1, 1.1, 0.95, 1] }}
+        className="pointer-events-none absolute left-0 top-24 -z-10 h-[420px] w-[420px] rounded-full bg-[#6debdf]/10 blur-[120px]"
+        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+      />
       <Navbar />
-      <main className="mx-auto max-w-7xl px-8 pb-24 pt-32">
-        <header className="mb-20 grid gap-8 lg:grid-cols-12">
+      <main className="pt-20">
+        <MarqueeBand items={tickerItems} />
+        <div className="mx-auto max-w-7xl px-8 pb-24 pt-12">
+          <header className="mb-20 grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <h1 className="mb-8 font-['Space_Grotesk'] text-5xl font-bold leading-none tracking-tight text-[#e1e4ff] md:text-7xl">
               {projectsPage.title}
@@ -55,17 +68,22 @@ function Projects() {
         </header>
 
         <section className="grid gap-8 md:grid-cols-2">
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const Icon = projectIconMap[project.icon]
             const tone = statusToneStyles[project.status.tone]
 
             return (
-              <a
-                className="group relative flex flex-col overflow-hidden rounded-lg bg-[#101320] p-8 transition-all duration-500 hover:bg-[#191e35]"
+              <motion.a
+                className="group relative flex flex-col overflow-hidden rounded-lg bg-[#101320] p-8 transition-colors duration-500 hover:bg-[#191e35]"
                 href={project.liveLink}
+                initial={{ opacity: 0, y: 24 }}
                 key={project.id}
                 rel="noreferrer"
                 target="_blank"
+                transition={{ duration: 0.5, delay: (index % 2) * 0.1, ease: 'easeOut' }}
+                viewport={{ once: true, amount: 0.3 }}
+                whileHover={{ y: -6 }}
+                whileInView={{ opacity: 1, y: 0 }}
               >
                 <div
                   className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-15 transition-opacity duration-500 group-hover:opacity-25"
@@ -80,7 +98,11 @@ function Projects() {
                     ID: {project.id}
                   </span>
                   <div className="flex items-center space-x-2">
-                    <div className={`h-2 w-2 rounded-full ${tone.dot} ${tone.glow}`} />
+                    <motion.div
+                      animate={{ opacity: [1, 0.35, 1] }}
+                      className={`h-2 w-2 rounded-full ${tone.dot} ${tone.glow}`}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                    />
                     <span
                       className={`text-[0.6875rem] uppercase tracking-wider ${tone.text}`}
                     >
@@ -108,11 +130,11 @@ function Projects() {
                   View Live Project
                   <MdArrowOutward className="ml-2 text-sm" />
                 </div>
-              </a>
+              </motion.a>
             )
           })}
         </section>
-
+        </div>
       </main>
       <Footer />
     </div>
