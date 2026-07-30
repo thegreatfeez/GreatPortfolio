@@ -7,7 +7,7 @@ type ProjectCardProps = {
 function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="group flex flex-col gap-3">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#1e2440]">
+      <div className="relative aspect-video overflow-hidden rounded-2xl bg-[#1e2440]">
         <img
           className="h-full w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
           src={project.image}

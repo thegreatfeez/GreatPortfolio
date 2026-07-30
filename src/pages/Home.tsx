@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="min-h-screen bg-[#0c0e17] text-[#e1e4ff]">
       <Navbar />
-      <main className="pt-24" id="home">
+      <main className="pt-20" id="home">
         <Hero />
         <Spotlight />
         <Bento />

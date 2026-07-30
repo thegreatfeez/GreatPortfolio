@@ -4,7 +4,7 @@ import { audits } from '../data.ts'
 
 function Bento() {
   return (
-    <section className="bg-[#101320] px-6 py-20 md:px-12" id="audits">
+    <section className="bg-[#101320] px-6 py-14 md:px-12" id="audits">
       <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-4">
         <article className="relative col-span-2 overflow-hidden rounded-2xl border border-[#6e7494]/10 bg-[#14192a] p-8">
           <div className="mb-6 flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[#afb9ce]">
