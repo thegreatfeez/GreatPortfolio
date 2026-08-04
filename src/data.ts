@@ -217,6 +217,28 @@ export const auditsPage = {
       actionUrl: 'https://code4rena.com/audits/2026-04-monetrix/submissions/S-468',
       icon: 'diamond',
     },
+    {
+      name: '0xMarkets Audit Contest',
+      category: 'HackenProof',
+      complexity: 'medium',
+      findings:
+        'Uncapped pool deployment ratio leaves queued withdrawals permanently stranded',
+      reward: '$21.10',
+      actionLabel: 'View Report',
+      actionUrl: 'https://dashboard.hackenproof.com/user/reports/ZEROMARK-1106',
+      icon: 'lock',
+    },
+    {
+      name: '0xMarkets Audit Contest',
+      category: 'HackenProof',
+      complexity: 'high',
+      findings:
+        'Decimal mismatch in _totalValueLocked corrupts all share pricing after first pool deployment',
+      reward: '$0.01',
+      actionLabel: 'View Report',
+      actionUrl: 'https://dashboard.hackenproof.com/user/reports/ZEROMARK-797',
+      icon: 'grid',
+    },
   ] as AuditEntry[],
   highlights: [
     {
