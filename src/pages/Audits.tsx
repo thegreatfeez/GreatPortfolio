@@ -8,29 +8,31 @@ import {
   MdToken,
   MdVerifiedUser,
 } from 'react-icons/md'
+import type { IconType } from 'react-icons'
 import Footer from '../components/Footer'
 import MarqueeBand from '../components/MarqueeBand'
 import Navbar from '../components/Navbar'
 import { Reveal } from '../components/Reveal'
-import { securityPage } from '../data.ts'
+import { auditsPage } from '../data.ts'
+import { auditStats } from '../lib/auditStats.ts'
 
 const tickerItems = [
-  ...new Set(securityPage.audits.map((audit) => audit.category)),
-  ...securityPage.highlights.map((highlight) => highlight.title),
+  ...new Set(auditsPage.audits.map((audit) => audit.category)),
+  ...auditsPage.highlights.map((highlight) => highlight.title),
 ]
 
-const auditIconMap = {
+const auditIconMap: Record<string, IconType> = {
   token: MdToken,
   diamond: MdDiamond,
   lock: MdLock,
   grid: MdGridView,
-} as const
+}
 
-const highlightIconMap = {
+const highlightIconMap: Record<string, IconType> = {
   verified: MdVerifiedUser,
   terminal: MdTerminal,
   shield: MdShield,
-} as const
+}
 
 const complexityStyles = {
   high: 'text-danger-soft border-danger-soft/25',
@@ -44,8 +46,8 @@ const complexityDotStyles = {
   low: 'bg-mint',
 } as const
 
-function Security() {
-  const audits = securityPage.audits
+function Audits() {
+  const audits = auditsPage.audits
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-abyss text-ink" id="top">
@@ -65,16 +67,16 @@ function Security() {
               <div className="mb-5 flex items-center gap-3">
                 <span aria-hidden="true" className="h-px w-8 bg-line" />
                 <span className="font-mono text-[0.6875rem] uppercase tracking-[0.3em] text-danger-soft">
-                  {securityPage.eyebrow}
+                  {auditsPage.eyebrow}
                 </span>
               </div>
               <h1 className="mb-6 font-display text-4xl font-bold leading-[1.1] tracking-tight text-ink md:text-6xl">
-                {securityPage.title}
+                {auditsPage.title}
                 <br />
-                <span className="text-accent">{securityPage.titleAccent}</span>
+                <span className="text-accent">{auditsPage.titleAccent}</span>
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
-                {securityPage.description}
+                {auditsPage.description}
               </p>
             </div>
             <div className="flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-mint lg:col-span-4 lg:justify-end">
@@ -84,9 +86,23 @@ function Security() {
                 className="h-2 w-2 rounded-full bg-mint shadow-[0_0_10px_rgba(110,235,223,0.6)]"
                 transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
               />
-              {securityPage.statusLabel}
+              {auditsPage.statusLabel}
             </div>
           </header>
+
+          <Reveal className="mb-10">
+            <h2 className="sr-only">{auditsPage.summaryLabel}</h2>
+            <dl className="grid gap-6 border-y border-line/15 py-7 sm:grid-cols-3 sm:gap-4">
+              {auditStats.map((stat) => (
+                <div className="flex flex-col-reverse" key={stat.label}>
+                  <dt className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-subtle">
+                    {stat.label}
+                  </dt>
+                  <dd className="font-display text-3xl font-bold text-ink">{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
 
           <Reveal className="overflow-hidden rounded-xl border border-line/20 bg-surface">
             <div className="overflow-x-auto">
@@ -96,10 +112,10 @@ function Security() {
                 </caption>
                 <thead>
                   <tr className="border-b border-line/20 bg-chip/40">
-                    {securityPage.tableHeadings.map((heading, index) => (
+                    {auditsPage.tableHeadings.map((heading, index) => (
                       <th
                         className={`px-6 py-5 font-mono text-[0.625rem] font-normal uppercase tracking-[0.2em] text-ink-subtle md:px-8 ${
-                          index === securityPage.tableHeadings.length - 1 ? 'text-right' : ''
+                          index === auditsPage.tableHeadings.length - 1 ? 'text-right' : ''
                         }`}
                         key={heading}
                         scope="col"
@@ -114,7 +130,7 @@ function Security() {
                     <tr>
                       <td
                         className="px-8 py-10 text-sm text-ink-muted"
-                        colSpan={securityPage.tableHeadings.length}
+                        colSpan={auditsPage.tableHeadings.length}
                       >
                         No audits logged yet — the next contest submission lands here.
                       </td>
@@ -212,8 +228,15 @@ function Security() {
             </div>
           </Reveal>
 
+          <Reveal className="mt-6">
+            <p className="font-mono text-[0.625rem] uppercase tracking-[0.2em] text-ink-subtle">
+              This log grows after every contest round — new submissions are added as soon
+              as a round closes.
+            </p>
+          </Reveal>
+
           <section className="mt-20 grid gap-10 border-t border-line/15 pt-14 md:grid-cols-3 md:gap-12">
-            {securityPage.highlights.map((highlight, index) => {
+            {auditsPage.highlights.map((highlight, index) => {
               const Icon = highlightIconMap[highlight.icon]
 
               return (
@@ -236,4 +259,4 @@ function Security() {
   )
 }
 
-export default Security
+export default Audits

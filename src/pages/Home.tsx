@@ -1,10 +1,10 @@
+import AuditBand from '../components/AuditBand'
 import Disciplines from '../components/Disciplines'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Learning from '../components/Learning'
 import MarqueeBand from '../components/MarqueeBand'
 import Navbar from '../components/Navbar'
-import SecurityBand from '../components/SecurityBand'
 import Spotlight from '../components/Spotlight'
 import { tickerItems } from '../data.ts'
 
@@ -18,7 +18,7 @@ function Home() {
         <Disciplines />
         <Spotlight />
         <Learning />
-        <SecurityBand />
+        <AuditBand />
       </main>
       <Footer />
     </div>

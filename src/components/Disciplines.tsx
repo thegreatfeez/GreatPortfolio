@@ -1,5 +1,6 @@
-import { FiCode, FiCpu, FiTrendingUp } from 'react-icons/fi'
+import { FiArrowRight, FiCode, FiCpu, FiTrendingUp } from 'react-icons/fi'
 import type { IconType } from 'react-icons'
+import { Link } from 'react-router-dom'
 import { disciplines, disciplinesHeading } from '../data.ts'
 import { Stagger, StaggerItem } from './Reveal'
 import SectionHeading from './SectionHeading'
@@ -55,16 +56,25 @@ function Disciplines() {
                     ))}
                   </ul>
 
-                  <div className="flex items-center gap-2 border-t border-line/15 pt-5">
-                    <span
-                      aria-hidden="true"
-                      className={`h-1.5 w-1.5 rounded-full ${
-                        discipline.statusTone === 'active' ? 'bg-mint' : 'bg-accent'
-                      }`}
-                    />
-                    <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-ink-subtle">
-                      {discipline.status}
+                  <div className="flex items-center justify-between gap-4 border-t border-line/15 pt-5">
+                    <span className="flex items-center gap-2">
+                      <span
+                        aria-hidden="true"
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          discipline.statusTone === 'active' ? 'bg-mint' : 'bg-accent'
+                        }`}
+                      />
+                      <span className="font-mono text-[0.625rem] uppercase tracking-[0.25em] text-ink-subtle">
+                        {discipline.status}
+                      </span>
                     </span>
+                    <Link
+                      className="inline-flex min-h-10 items-center gap-1.5 font-mono text-[0.625rem] uppercase tracking-[0.2em] text-accent transition-colors hover:text-mint"
+                      to={discipline.pageHref}
+                    >
+                      {discipline.pageLabel}
+                      <FiArrowRight aria-hidden="true" />
+                    </Link>
                   </div>
                 </article>
               </StaggerItem>

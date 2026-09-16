@@ -41,7 +41,7 @@ function Navbar() {
           </span>
         </NavLink>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 lg:flex">
           {navLinks.map((item) => (
             <NavLink
               className={({ isActive }) =>
@@ -70,7 +70,7 @@ function Navbar() {
           aria-controls="mobile-navigation"
           aria-expanded={open}
           aria-label={open ? 'Close navigation' : 'Open navigation'}
-          className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-muted transition-colors hover:text-ink md:hidden"
+          className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-ink-muted transition-colors hover:text-ink lg:hidden"
           onClick={() => setOpen((value) => !value)}
           type="button"
         >
@@ -80,7 +80,7 @@ function Navbar() {
 
       {open ? (
         <div
-          className="border-t border-line/20 bg-abyss/95 px-6 py-2 md:hidden"
+          className="border-t border-line/20 bg-abyss/95 px-6 py-2 lg:hidden"
           id="mobile-navigation"
         >
           <ul className="flex flex-col">

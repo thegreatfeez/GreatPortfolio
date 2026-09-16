@@ -3,8 +3,8 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/audits"
-  to = "/security"
+  from = "/security"
+  to = "/audits"
   status = 301
 
 [[redirects]]

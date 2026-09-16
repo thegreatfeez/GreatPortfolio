@@ -23,6 +23,8 @@ export type Discipline = {
   status: string
   statusTone: DisciplineStatusTone
   icon: 'contract' | 'cpu' | 'chart'
+  pageHref: string
+  pageLabel: string
 }
 
 export type LearningTrack = {
@@ -113,7 +115,9 @@ export const site = {
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
-  { href: '/security', label: 'Security' },
+  { href: '/audits', label: 'Audits' },
+  { href: '/models', label: 'AI Models' },
+  { href: '/finance', label: 'Finance' },
 ]
 
 export const tickerItems: string[] = [
@@ -145,6 +149,8 @@ export const disciplines: Discipline[] = [
     status: 'Shipping',
     statusTone: 'active',
     icon: 'contract',
+    pageHref: '/projects',
+    pageLabel: 'View projects',
   },
   {
     id: 'ai',
@@ -157,6 +163,8 @@ export const disciplines: Discipline[] = [
     status: 'In progress',
     statusTone: 'progress',
     icon: 'cpu',
+    pageHref: '/models',
+    pageLabel: 'Page coming soon',
   },
   {
     id: 'finance',
@@ -169,21 +177,23 @@ export const disciplines: Discipline[] = [
     status: 'In progress',
     statusTone: 'progress',
     icon: 'chart',
+    pageHref: '/finance',
+    pageLabel: 'Page coming soon',
   },
 ]
 
-export const securityPractice: SecurityPractice = {
+export const auditPractice: SecurityPractice = {
   label: 'Always sharpening',
   title: 'Security earns its keep as a standing discipline.',
   description:
-    "Auditing is not my headline — it is a skill I keep sharp alongside everything else. Reading code for failure paths makes the contracts I ship safer, and it is a practice I am happy to keep doing indefinitely.",
+    "Auditing is not my headline — it is a skill I keep sharp alongside everything else. Reading code for failure paths makes the contracts I ship safer, and the log below is updated every time a round closes.",
   points: [
     'Manual review first, tooling second — Slither and Aderyn support the read, never replace it',
     'Contest reps on CodeHawks and Code4rena to keep the instinct honest',
     'Every finding written up with its failure path and a concrete fix',
   ],
-  ctaLabel: 'See the audit log',
-  ctaHref: '/security',
+  ctaLabel: 'Open the audit log',
+  ctaHref: '/audits',
 }
 
 export const learningHeading = {
@@ -294,13 +304,14 @@ export const contact = {
   email: 'adamsafeez4@gmail.com',
 }
 
-export const securityPage = {
-  eyebrow: 'Security track',
-  title: 'Security practice &',
+export const auditsPage = {
+  eyebrow: 'Audit log',
+  title: 'Audits &',
   titleAccent: 'published findings.',
   description:
-    'Auditing is a discipline I keep sharp alongside my main work. This is the honest log — contest submissions, findings, and what they paid.',
-  statusLabel: 'Always sharpening',
+    'Auditing is a discipline I keep sharp alongside my main work. This is the honest log — every contest submission, what I found, and what it paid. It grows every time a round closes.',
+  statusLabel: 'Tracking live',
+  summaryLabel: 'Running totals',
   tableHeadings: ['Project Name', 'Complexity', 'Key Findings', 'Reward', 'Action'],
   audits: [
     {
@@ -366,6 +377,108 @@ export const securityPage = {
       icon: 'shield',
     },
   ] as AuditHighlight[],
+}
+
+export type RoadmapStatus = 'in-progress' | 'planned'
+
+export type RoadmapItem = {
+  title: string
+  description: string
+  tags: string[]
+  status: RoadmapStatus
+}
+
+export type RoadmapPage = {
+  eyebrow: string
+  title: string
+  titleAccent: string
+  description: string
+  statusLabel: string
+  note: string
+  items: RoadmapItem[]
+  cta: {
+    title: string
+    description: string
+    primary: string
+  }
+}
+
+export const modelsPage: RoadmapPage = {
+  eyebrow: 'AI engineering',
+  title: 'Models, experiments &',
+  titleAccent: 'things in the oven.',
+  description:
+    'A home for the AI side of the work — NLP experiments, data pipelines, and the model runs worth showing. Nothing is published here yet because nothing has earned it yet. The first entries land as soon as they are worth your time.',
+  statusLabel: 'First entries landing soon',
+  note: 'In the meantime, the AI work that already shipped is on the projects page — Aegis commits every AI recommendation on-chain before execution.',
+  items: [
+    {
+      title: 'NLP experiments',
+      description:
+        'Text classification and sentiment work over market and on-chain commentary, built while working through the AI engineering course.',
+      tags: ['Python', 'NLP', 'Classification'],
+      status: 'in-progress',
+    },
+    {
+      title: 'Market data pipelines',
+      description:
+        'Python pipelines that pull, clean, and feature-engineer market data so a model has something honest to learn from.',
+      tags: ['Pandas', 'NumPy', 'ETL'],
+      status: 'planned',
+    },
+    {
+      title: 'Model notebooks',
+      description:
+        'Documented training and evaluation runs — dataset, method, results, and where the thing failed. Published alongside the code.',
+      tags: ['Notebooks', 'Evaluation'],
+      status: 'planned',
+    },
+  ],
+  cta: {
+    title: 'Building something in this space?',
+    description:
+      'If you are working on data or model problems and want another pair of hands, I would like to hear about it.',
+    primary: 'Get in touch',
+  },
+}
+
+export const financePage: RoadmapPage = {
+  eyebrow: 'Financial analysis',
+  title: 'Research, models &',
+  titleAccent: 'market notes.',
+  description:
+    'Where the financial analyst bootcamp and the quant path will be documented — fundamentals research, financial models, and eventually backtested strategy work. This page fills in as each piece is finished.',
+  statusLabel: 'First entries landing soon',
+  note: 'Ready before this is: the DeFi protocols on the projects page, which are the same markets in code form.',
+  items: [
+    {
+      title: 'Fundamentals research',
+      description:
+        'Written analysis of the market fundamentals behind assets and sectors, starting with what the bootcamp covers.',
+      tags: ['Market fundamentals', 'Research'],
+      status: 'in-progress',
+    },
+    {
+      title: 'Financial models',
+      description:
+        'Modelling work built from the ground up — statements, assumptions, and the sensitivity around them.',
+      tags: ['Modelling', 'Valuation'],
+      status: 'planned',
+    },
+    {
+      title: 'Quant experiments',
+      description:
+        'Signal research and backtests at the intersection of the data work and the market work. The long game.',
+      tags: ['Quant', 'Backtesting'],
+      status: 'planned',
+    },
+  ],
+  cta: {
+    title: 'Have a market question worth digging into?',
+    description:
+      'I am looking for real problems to sharpen the analysis against — not just textbook exercises.',
+    primary: 'Get in touch',
+  },
 }
 
 export const projectsPage = {

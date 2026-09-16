@@ -34,9 +34,10 @@ src/
   data.ts              all site content and types
   index.css            design tokens (@theme), base styles, reduced-motion
   App.tsx              routes + MotionConfig
+  lib/auditStats.ts    derived audit totals (submissions, platforms, bounties)
   components/          Navbar, Hero, Disciplines, Spotlight, Learning,
-                       SecurityBand, Footer, Reveal, SectionHeading
-  pages/               Home, Projects, Security
+                       AuditBand, Roadmap, Footer, Reveal, SectionHeading
+  pages/               Home, Projects, Audits, Models, Finance
 ```
 
 ## Design tokens
@@ -50,7 +51,17 @@ inline hex values in components.
 
 | Route | Page |
 |---|---|
-| `/` | Hero, three disciplines, selected work, current learning, security practice |
+| `/` | Hero, three disciplines, selected work, current learning, audit band |
 | `/projects` | All shipped projects with live and source links |
-| `/security` | Audit contest submissions and findings |
-| `/audits` | 301 redirect to `/security` |
+| `/audits` | Audit log — submissions, findings, rewards, running totals |
+| `/models` | AI engineering — roadmap, entries land as they are finished |
+| `/finance` | Financial analysis — roadmap, entries land as they are finished |
+| `/security` | 301 redirect to `/audits` |
+
+## Adding an entry to a roadmap page
+
+`/models` and `/finance` are rendered by the shared `Roadmap` component from the
+`modelsPage` and `financePage` objects in [src/data.ts](src/data.ts). To publish a
+new entry, add it to that page's `items` array and flip its `status` from `planned`
+to `in-progress` (or give the page a real `statusLabel`). The "nothing published
+yet" notice is driven by the page's `statusLabel` and `note` fields.
