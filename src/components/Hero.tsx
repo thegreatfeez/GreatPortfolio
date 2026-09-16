@@ -1,109 +1,99 @@
 import { Link } from 'react-router-dom'
-import { motion, type Variants } from 'framer-motion'
-import { FiTerminal } from 'react-icons/fi'
-import { FaShieldHeart } from 'react-icons/fa6'
-import { capabilities, metrics, site } from '../data.ts'
-
-const container: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.05 },
-  },
-}
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: 'easeOut' },
-  },
-}
+import { motion } from 'framer-motion'
+import { FiArrowUpRight, FiMapPin } from 'react-icons/fi'
+import { contact, disciplines, site } from '../data.ts'
+import { Stagger, StaggerItem } from './Reveal'
 
 function Hero() {
   return (
-    <section className="relative mx-auto max-w-7xl px-6 pb-14 pt-6 md:px-12 md:pb-20 md:pt-8">
+    <section className="relative overflow-hidden">
       <motion.div
         animate={{ x: [0, 30, -20, 0], y: [0, -20, 15, 0], scale: [1, 1.08, 0.96, 1] }}
-        className="pointer-events-none absolute right-0 top-20 -z-10 h-[480px] w-[480px] rounded-full bg-[#bdc7dc]/10 blur-[120px]"
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 top-10 -z-10 h-[460px] w-[460px] rounded-full bg-accent/[0.07] blur-[120px]"
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div
-        animate="show"
-        className="grid gap-12 md:grid-cols-12"
-        initial="hidden"
-        variants={container}
-      >
-        <div className="md:col-span-8">
-          <motion.div className="mb-6 flex items-center gap-3" variants={item}>
-            <span className="h-px w-12 bg-[#6e7494]/40" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#939eb4]">
+
+      <Stagger className="mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-14 md:grid-cols-12 md:px-12 md:pb-24 md:pt-20">
+        <StaggerItem className="md:col-span-7">
+          <div className="mb-6 flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-10 bg-line" />
+            <span className="font-mono text-[0.6875rem] uppercase tracking-[0.3em] text-ink-subtle">
               {site.role}
             </span>
-          </motion.div>
-          <motion.h1
-            className="mb-6 max-w-3xl font-['Space_Grotesk'] text-4xl font-bold leading-tight text-[#e1e4ff] md:text-[3.5rem]"
-            variants={item}
-          >
-            {site.headline}{' '}
-            <span className="text-[#939eb4]">{site.headlineAccent}</span>
-          </motion.h1>
-          <motion.p
-            className="mb-8 max-w-2xl text-lg leading-relaxed text-[#a3a9cc]"
-            variants={item}
-          >
+          </div>
+
+          <h1 className="mb-6 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-ink md:text-[3.5rem]">
+            {site.headline} <span className="text-accent">{site.headlineAccent}</span>
+          </h1>
+
+          <p className="mb-9 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
             {site.summary}
-          </motion.p>
-          <motion.div className="flex flex-wrap items-center gap-6" variants={item}>
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
             <Link
-              className="rounded-md bg-[#bdc7dc] px-8 py-4 text-xs font-bold uppercase tracking-[0.3em] text-[#374152] shadow-lg shadow-[#bdc7dc]/10"
+              className="inline-flex min-h-12 items-center gap-2 rounded-md bg-accent px-7 font-display text-[0.6875rem] font-bold uppercase tracking-[0.25em] text-abyss transition-colors hover:bg-ink"
               to="/projects"
             >
               {site.ctaPrimary}
+              <FiArrowUpRight aria-hidden="true" className="text-sm" />
             </Link>
-          </motion.div>
-        </div>
+            <a
+              className="inline-flex min-h-12 items-center rounded-md border border-ink-subtle/30 px-7 font-display text-[0.6875rem] font-bold uppercase tracking-[0.25em] text-ink-muted transition-colors hover:border-mint/50 hover:text-mint"
+              href={`mailto:${contact.email}`}
+            >
+              {site.ctaSecondary}
+            </a>
+          </div>
 
-        <aside className="flex flex-col gap-6 md:col-span-4">
-          <motion.div
-            className="rounded-xl border border-[#6e7494]/10 bg-[#101320] p-6"
-            variants={item}
-          >
-            <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#6e7494]">
-              <FiTerminal className="text-[#6debdf]" />
-              Capabilities
+          <p className="mt-8 flex items-center gap-2 font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-ink-subtle">
+            <FiMapPin aria-hidden="true" className="text-mint" />
+            Lagos, Nigeria · Remote-friendly
+          </p>
+        </StaggerItem>
+
+        <StaggerItem className="md:col-span-5">
+          <div className="rounded-xl border border-line/20 bg-surface p-6 md:p-7">
+            <div className="mb-6 flex items-center justify-between">
+              <span className="font-mono text-[0.6875rem] uppercase tracking-[0.3em] text-ink-subtle">
+                Current focus
+              </span>
+              <motion.span
+                animate={{ opacity: [1, 0.3, 1] }}
+                aria-hidden="true"
+                className="h-2 w-2 rounded-full bg-mint shadow-[0_0_10px_rgba(110,235,223,0.6)]"
+                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+              />
             </div>
-            <ul className="space-y-3 font-['Roboto_Mono'] text-[13px] text-[#a3a9cc]">
-              {capabilities.map((capability) => (
+
+            <ul className="space-y-5">
+              {disciplines.map((discipline) => (
                 <li
-                  className="flex items-center justify-between border-b border-[#6e7494]/10 pb-2"
-                  key={capability.label}
+                  className="border-b border-line/15 pb-5 last:border-none last:pb-0"
+                  key={discipline.id}
                 >
-                  <span>{capability.label}</span>
-                  <span className="text-[#6debdf]">{capability.value}</span>
+                  <div className="mb-1.5 flex items-baseline justify-between gap-4">
+                    <span className="font-display text-sm font-bold text-ink">
+                      {discipline.title}
+                    </span>
+                    <span
+                      className={`shrink-0 font-mono text-[0.625rem] uppercase tracking-[0.2em] ${
+                        discipline.statusTone === 'active' ? 'text-mint' : 'text-accent'
+                      }`}
+                    >
+                      {discipline.status}
+                    </span>
+                  </div>
+                  <p className="text-[0.8125rem] leading-relaxed text-ink-subtle">
+                    {discipline.stack.slice(0, 4).join(' · ')}
+                  </p>
                 </li>
               ))}
             </ul>
-          </motion.div>
-          <motion.div
-            className="rounded-xl border border-[#6e7494]/10 bg-[#101320] p-6"
-            variants={item}
-          >
-            <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#6e7494]">
-              <FaShieldHeart className="text-[#ee7d77]" />
-              Vulnerability Metrics
-            </div>
-            <div className="flex items-baseline gap-3">
-              <span className="font-['Space_Grotesk'] text-4xl font-bold text-[#e1e4ff]">
-                {metrics.assetsSecured}
-              </span>
-              <span className="text-[11px] uppercase tracking-[0.3em] text-[#6e7494]">
-                {metrics.assetsSecuredLabel}
-              </span>
-            </div>
-          </motion.div>
-        </aside>
-      </motion.div>
+          </div>
+        </StaggerItem>
+      </Stagger>
     </section>
   )
 }

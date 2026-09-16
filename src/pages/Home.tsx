@@ -1,20 +1,24 @@
-import Bento from '../components/Bento'
+import Disciplines from '../components/Disciplines'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import Learning from '../components/Learning'
 import MarqueeBand from '../components/MarqueeBand'
 import Navbar from '../components/Navbar'
+import SecurityBand from '../components/SecurityBand'
 import Spotlight from '../components/Spotlight'
 import { tickerItems } from '../data.ts'
 
 function Home() {
   return (
-    <div className="min-h-screen bg-[#0c0e17] text-[#e1e4ff]">
+    <div className="min-h-screen bg-abyss text-ink" id="top">
       <Navbar />
-      <main className="pt-20" id="home">
+      <main className="pt-20">
         <MarqueeBand items={tickerItems} />
         <Hero />
+        <Disciplines />
         <Spotlight />
-        <Bento />
+        <Learning />
+        <SecurityBand />
       </main>
       <Footer />
     </div>

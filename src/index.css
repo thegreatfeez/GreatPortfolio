@@ -1,16 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+@theme {
+  /* Surfaces — lighten as they elevate */
+  --color-abyss: #0c0e17;
+  --color-surface: #101320;
+  --color-raised: #14192a;
+  --color-high: #191e35;
+  --color-chip: #1e2440;
+
+  /* Text */
+  --color-ink: #e1e4ff;
+  --color-ink-muted: #a3a9cc;
+  --color-ink-subtle: #7d86a8;
+
+  /* Structure */
+  --color-line: #404664;
+
+  /* Accents */
+  --color-accent: #bdc7dc;
+  --color-mint: #6debdf;
+  --color-danger: #bb5551;
+  --color-danger-soft: #ee7d77;
+
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Roboto Mono', ui-monospace, monospace;
+}
+
 @layer base {
   :root {
     color-scheme: dark;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
   body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #0c0e17;
-    color: #e1e4ff;
+    font-family: var(--font-sans);
+    background-color: var(--color-abyss);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
   }
 
@@ -22,5 +56,30 @@
   img {
     display: block;
     max-width: 100%;
+  }
+
+  ::selection {
+    background-color: var(--color-mint);
+    color: var(--color-abyss);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-mint);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

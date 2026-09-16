@@ -5,31 +5,34 @@ type MarqueeBandProps = {
   duration?: number
 }
 
-function MarqueeGroup({ items, hidden }: { items: string[]; hidden?: boolean }) {
+function MarqueeGroup({ items }: { items: string[] }) {
   return (
-    <div aria-hidden={hidden} className="flex shrink-0 items-center gap-3 pr-3">
+    <div className="flex shrink-0 items-center gap-3 pr-3">
       {items.map((item) => (
         <span className="flex items-center gap-3" key={item}>
-          <span className="font-['Roboto_Mono'] text-xs uppercase tracking-[0.3em] text-[#6e7494]">
+          <span className="font-mono text-[0.6875rem] uppercase tracking-[0.3em] text-ink-subtle">
             {item}
           </span>
-          <span className="h-1 w-1 rounded-full bg-[#6debdf]" />
+          <span aria-hidden="true" className="h-1 w-1 rounded-full bg-mint" />
         </span>
       ))}
     </div>
   )
 }
 
-function MarqueeBand({ items, duration = 24 }: MarqueeBandProps) {
+function MarqueeBand({ items, duration = 28 }: MarqueeBandProps) {
   return (
-    <div className="overflow-hidden border-y border-[#6e7494]/10 bg-[#101320] py-3">
+    <div
+      aria-hidden="true"
+      className="overflow-hidden border-y border-line/15 bg-surface py-3"
+    >
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
         className="flex w-max"
         transition={{ duration, repeat: Infinity, ease: 'linear' }}
       >
         <MarqueeGroup items={items} />
-        <MarqueeGroup hidden items={items} />
+        <MarqueeGroup items={items} />
       </motion.div>
     </div>
   )

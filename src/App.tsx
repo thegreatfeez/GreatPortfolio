@@ -1,18 +1,23 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
-import Audits from './pages/Audits'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
+import Security from './pages/Security'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/audits" element={<Audits />} />
-      </Routes>
-    </BrowserRouter>
+    <MotionConfig reducedMotion="user">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/security" element={<Security />} />
+          <Route path="/audits" element={<Navigate replace to="/security" />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
+        </Routes>
+      </BrowserRouter>
+    </MotionConfig>
   )
 }
 

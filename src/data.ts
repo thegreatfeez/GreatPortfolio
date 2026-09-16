@@ -11,9 +11,35 @@ export type NavLink = {
   label: string
 }
 
-export type Capability = {
+export type DisciplineStatusTone = 'active' | 'progress'
+
+export type Discipline = {
+  id: string
+  index: string
+  kicker: string
+  title: string
+  description: string
+  stack: string[]
+  status: string
+  statusTone: DisciplineStatusTone
+  icon: 'contract' | 'cpu' | 'chart'
+}
+
+export type LearningTrack = {
+  title: string
+  provider: string
+  detail: string
+  tags: string[]
+  horizon: string
+}
+
+export type SecurityPractice = {
   label: string
-  value: string
+  title: string
+  description: string
+  points: string[]
+  ctaLabel: string
+  ctaHref: string
 }
 
 export type Project = {
@@ -21,6 +47,8 @@ export type Project = {
   description: string
   tags: string[]
   image: string
+  liveLink: string
+  codeLink: string
 }
 
 export type AuditComplexity = 'high' | 'medium' | 'low'
@@ -71,13 +99,13 @@ export type FooterLink = {
 
 export const site = {
   name: 'Adams Afeez',
-  role: 'Smart Contract Security Researcher • Full-Stack Developer',
+  role: 'Web3 Developer · AI Engineering · Financial Analysis',
   headline: "Hey, I'm Adams Afeez",
-  headlineAccent: 'I build and secure across Web3, Web2, and AI.',
+  headlineAccent: 'I build at the intersection of web3, AI, and finance.',
   summary:
-    "Smart contract security researcher focused on identifying vulnerabilities in DeFi protocols and EVM-based applications. I bring a builder's intuition to audits, having shipped production-ready smart contracts, full-stack Web2 and Web3 products, and AI-native tools and workflows.",
+    "Blockchain developer expanding into AI engineering and financial analysis. I ship production-ready EVM smart contracts, and I'm using Python to explore natural language processing, data manipulation, and market fundamentals — converting algorithms into market logic.",
   ctaPrimary: 'View Projects',
-  ctaSecondary: 'Contact Me',
+  ctaSecondary: 'Get in Touch',
   copyrightSuffix: 'Adams Afeez. Crafted with care.',
   profileImage: avatarImage,
 }
@@ -85,56 +113,119 @@ export const site = {
 export const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
-  { href: '/audits', label: 'Audits' },
+  { href: '/security', label: 'Security' },
 ]
 
 export const tickerItems: string[] = [
+  'Solidity & EVM',
+  'AI Engineering',
+  'Financial Analysis',
+  'Natural Language Processing',
+  'Market Fundamentals',
+  'Data-Driven Systems',
   'Smart Contract Security',
-  'Solidity Development',
-  'DeFi Protocols',
-  'Web3',
-  'Web2',
-  'AI-Native Development',
 ]
 
-export const capabilities: Capability[] = [
-  { label: 'Smart Contract Security', value: 'Active' },
-  { label: 'Solidity Development', value: 'Builder' },
-  { label: 'DeFi Protocols', value: 'Focused' },
-]
-
-export const metrics = {
-  assetsSecured: 'EVM',
-  assetsSecuredLabel: 'Security Focus',
-}
-
-export const audits = {
-  statusLabel: 'Security Research',
-  title: 'Audit-ready mindset',
+export const disciplinesHeading = {
+  eyebrow: 'Three disciplines',
+  title: 'Where I am, and where I am heading.',
   description:
-    'I’m building audit reps through CodeHawks First Flights and contests, aiming for clear, actionable reports and attacker-minded reasoning. My process is to understand the protocol deeply, map attack surfaces, and communicate fixes with clarity.',
-  image: null,
-  crossChain: {
-    title: 'What I Do',
-    description:
-      'Manual code review, vulnerability identification, and smart contract development with a security-first approach.',
-  },
-  aiWorkflow: {
-    title: 'AI-Native Workflow',
-    items: [
-      'Claude Code',
-      'ChatGPT',
-      'Local LLMs',
-      'Prompt & Context Engineering',
-      'Workflow Automation',
-    ],
-  },
+    'One core practice I ship with every week, and two I am actively building toward — all of it pointed at the same target: intelligent, data-driven systems.',
 }
+
+export const disciplines: Discipline[] = [
+  {
+    id: 'contracts',
+    index: '01',
+    kicker: 'Core practice',
+    title: 'Smart Contracts & Web3',
+    description:
+      'Production-ready Solidity and EVM systems — DeFi primitives, fully on-chain game assets, and full-stack Web3 products shipped end to end.',
+    stack: ['Solidity', 'Foundry', 'Arbitrum', 'Base', 'Chainlink', 'React'],
+    status: 'Shipping',
+    statusTone: 'active',
+    icon: 'contract',
+  },
+  {
+    id: 'ai',
+    index: '02',
+    kicker: 'Expanding into',
+    title: 'AI Engineering',
+    description:
+      'Using Python to build data manipulation pipelines and NLP tooling, with an emphasis on systems that earn their place rather than demo-ware.',
+    stack: ['Python', 'Pandas', 'NumPy', 'NLP basics', 'Jupyter', 'LLM workflows'],
+    status: 'In progress',
+    statusTone: 'progress',
+    icon: 'cpu',
+  },
+  {
+    id: 'finance',
+    index: '03',
+    kicker: 'Expanding into',
+    title: 'Financial Analysis',
+    description:
+      'Studying market fundamentals and financial modelling on a path toward quantitative systems — where algorithms meet market logic.',
+    stack: ['Market fundamentals', 'Financial modelling', 'Data analysis', 'Quant foundations'],
+    status: 'In progress',
+    statusTone: 'progress',
+    icon: 'chart',
+  },
+]
+
+export const securityPractice: SecurityPractice = {
+  label: 'Always sharpening',
+  title: 'Security earns its keep as a standing discipline.',
+  description:
+    "Auditing is not my headline — it is a skill I keep sharp alongside everything else. Reading code for failure paths makes the contracts I ship safer, and it is a practice I am happy to keep doing indefinitely.",
+  points: [
+    'Manual review first, tooling second — Slither and Aderyn support the read, never replace it',
+    'Contest reps on CodeHawks and Code4rena to keep the instinct honest',
+    'Every finding written up with its failure path and a concrete fix',
+  ],
+  ctaLabel: 'See the audit log',
+  ctaHref: '/security',
+}
+
+export const learningHeading = {
+  eyebrow: 'Currently learning',
+  title: 'In the middle of a deliberate rebuild.',
+  description:
+    'Three tracks running at once — an AI engineering course, a financial analyst bootcamp, and a longer road toward quantitative finance.',
+}
+
+export const learningTracks: LearningTrack[] = [
+  {
+    title: 'AI Engineering',
+    provider: 'Udemy',
+    detail:
+      'Deepening Python fundamentals and applying them to NLP, data manipulation, and model-driven workflows.',
+    tags: ['Python', 'NLP', 'Data pipelines'],
+    horizon: 'Running now',
+  },
+  {
+    title: 'Financial Analyst Bootcamp',
+    provider: '6-week intensive',
+    detail:
+      'Market fundamentals, statement analysis, and the modelling habits behind sound financial judgement.',
+    tags: ['Financial analysis', 'Modelling', 'Market fundamentals'],
+    horizon: 'Running now',
+  },
+  {
+    title: 'Quant Finance & Financial Engineering',
+    provider: 'Long-term path',
+    detail:
+      'Where the two tracks converge — quantitative systems, market logic, and data-driven strategy.',
+    tags: ['Quant', 'Financial engineering'],
+    horizon: 'Next',
+  },
+]
 
 export const spotlight = {
-  title: 'Featured Projects',
+  title: 'Selected work',
   description:
-    'A curated selection of my recent work across frontend engineering and Web3.',
+    'A handful of shipped products across DeFi, on-chain games, and creator tooling.',
+  ctaLabel: 'All projects',
+  ctaHref: '/projects',
 }
 
 export const projects: Project[] = [
@@ -144,6 +235,8 @@ export const projects: Project[] = [
       'An over-collateralized stablecoin pegged 1:1 to the Nigerian Naira, built on Arbitrum with ETH-backed vaults and automatic liquidations.',
     tags: ['#Solidity', '#Arbitrum', '#DeFi'],
     image: nairaStableImage,
+    liveLink: 'https://n-ngn.vercel.app',
+    codeLink: 'https://github.com/thegreatfeez/nNGN',
   },
   {
     title: 'Crypto Quiz Quest',
@@ -151,6 +244,8 @@ export const projects: Project[] = [
       'A crypto trivia game that mints real $IQX ERC-20 tokens and on-chain generated SVG NFT badges as rewards.',
     tags: ['#Solidity', '#React', '#NFT'],
     image: cryptoQuizImage,
+    liveLink: 'https://crypto-quiz-lake.vercel.app',
+    codeLink: 'https://github.com/thegreatfeez/Crypto-quiz',
   },
   {
     title: 'LumeLink',
@@ -158,6 +253,8 @@ export const projects: Project[] = [
       'A decentralized creator subscription platform powered by Base and Chainlink VRF.',
     tags: ['#Web3', '#Solidity', '#Base'],
     image: lumeLinkImage,
+    liveLink: 'https://lumlnk.netlify.app/',
+    codeLink: 'https://github.com/thegreatfeez/LumeLink',
   },
 ]
 
@@ -189,12 +286,21 @@ export const footerLinks: FooterLink[] = [
   },
 ]
 
-export const auditsPage = {
-  title: 'Security Audits &',
-  titleAccent: 'Vulnerability Assessments.',
+export const contact = {
+  eyebrow: 'Open to',
+  title: 'Smart contract work, data problems, and anything at the seam.',
   description:
-    'Exposing logic flaws and cryptographic weaknesses through rigorous, human-led verification of decentralized systems.',
-  networkStatus: 'Network: Mainnet Secure',
+    'I am open to Web3 engineering roles, AI and data collaborations, and freelance builds. If it sits between code and markets, I want to hear about it.',
+  email: 'adamsafeez4@gmail.com',
+}
+
+export const securityPage = {
+  eyebrow: 'Security track',
+  title: 'Security practice &',
+  titleAccent: 'published findings.',
+  description:
+    'Auditing is a discipline I keep sharp alongside my main work. This is the honest log — contest submissions, findings, and what they paid.',
+  statusLabel: 'Always sharpening',
   tableHeadings: ['Project Name', 'Complexity', 'Key Findings', 'Reward', 'Action'],
   audits: [
     {
@@ -242,32 +348,32 @@ export const auditsPage = {
   ] as AuditEntry[],
   highlights: [
     {
-      title: 'Meticulous Coverage',
+      title: 'Manual first',
       description:
-        'Every audit includes a line-by-line manual code review supplemented by formal verification and static analysis tools.',
-      icon: 'verified',
-    },
-    {
-      title: 'In-Depth Reporting',
-      description:
-        "Our reports don't just find bugs; they provide actionable architectural improvements to harden your system against future threats.",
+        'Every review starts with reading the code line by line. Static analysis and fuzzing come after it, never instead of it.',
       icon: 'terminal',
     },
     {
-      title: 'Long-Term Partnership',
+      title: 'Root cause, not symptoms',
       description:
-        'Post-audit support ensures that all remediation steps are correctly implemented through detailed re-testing and certification.',
+        'Findings are written up with the failure path and a concrete fix, so the patch is obvious and the lesson sticks.',
+      icon: 'verified',
+    },
+    {
+      title: 'Compounding reps',
+      description:
+        'Contests and first flights are how the instinct stays sharp. Every round feeds straight back into how I build.',
       icon: 'shield',
     },
   ] as AuditHighlight[],
 }
 
 export const projectsPage = {
-  versionLabel: 'Portfolio v2.0.4',
-  title: 'Featured Web &',
-  titleAccent: 'Blockchain Projects.',
+  eyebrow: 'Portfolio',
+  title: 'Shipped products &',
+  titleAccent: 'protocol experiments.',
   description:
-    'A curated selection of products and experiments across frontend engineering, Web3, and crypto tooling.',
+    'Work across smart contract engineering, on-chain systems, and AI-adjacent tooling — every one of them deployed and clickable.',
   projects: [
     {
       id: 'PROJ-001',
@@ -343,9 +449,9 @@ export const projectsPage = {
     },
   ] as FeaturedProject[],
   cta: {
-    title: "Let's build something impactful.",
+    title: "Let's build something that holds up.",
     description:
-      'Open to frontend, Web3, and product collaborations. Reach out and let’s talk about what you’re building.',
+      'Open to contract work, Web3 and data engineering roles, and product collaborations. Tell me what you are building.',
     primary: 'Start a Project',
     secondary: 'See Live Demos',
   },
