@@ -6,7 +6,7 @@ import { Reveal } from './Reveal'
 
 function AuditBand() {
   return (
-    <section className="border-t border-line/10 bg-surface px-6 py-20 md:px-12" id="audits">
+    <section className="border-t border-line/10 bg-surface px-6 py-16 md:px-12" id="audits">
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-12 md:gap-16">
         <Reveal className="md:col-span-7">
           <div className="mb-4 flex items-center gap-3">
@@ -16,7 +16,7 @@ function AuditBand() {
             </span>
           </div>
 
-          <h2 className="mb-5 max-w-xl font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
+          <h2 className="mb-5 max-w-xl font-display text-2xl font-bold leading-tight tracking-tight text-ink md:text-3xl">
             {auditPractice.title}
           </h2>
           <p className="mb-8 max-w-2xl text-base leading-relaxed text-ink-muted">

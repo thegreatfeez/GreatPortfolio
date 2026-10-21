@@ -5,6 +5,7 @@ import Audits from './pages/Audits'
 import Finance from './pages/Finance'
 import Home from './pages/Home'
 import Models from './pages/Models'
+import NigeriaCrypto2026 from './pages/NigeriaCrypto2026'
 import Projects from './pages/Projects'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/audits" element={<Audits />} />
           <Route path="/models" element={<Models />} />
           <Route path="/finance" element={<Finance />} />
+          <Route path="/finance/nigeria-crypto-2026" element={<NigeriaCrypto2026 />} />
           <Route path="/security" element={<Navigate replace to="/audits" />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>

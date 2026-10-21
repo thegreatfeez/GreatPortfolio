@@ -6,7 +6,7 @@ import { projects, spotlight } from '../data.ts'
 
 function Spotlight() {
   return (
-    <section className="border-t border-line/10 px-6 py-20 md:px-12" id="work">
+    <section className="border-t border-line/10 px-6 py-16 md:px-12" id="work">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           action={

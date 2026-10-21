@@ -13,7 +13,7 @@ const disciplineIconMap: Record<string, IconType> = {
 
 function Disciplines() {
   return (
-    <section className="border-t border-line/10 bg-surface px-6 py-20 md:px-12" id="focus">
+    <section className="border-t border-line/10 bg-surface px-6 py-16 md:px-12" id="focus">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           description={disciplinesHeading.description}

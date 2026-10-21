@@ -1,3 +1,4 @@
+import cryptoNigeriaImage from './assets/cryptoNigeria2026.png'
 import aegisImage from './assets/img/aegis.png'
 import avatarImage from './assets/img/avatar.jpg'
 import cryptoQuizImage from './assets/img/cryptoQuiz.png'
@@ -178,7 +179,7 @@ export const disciplines: Discipline[] = [
     statusTone: 'progress',
     icon: 'chart',
     pageHref: '/finance',
-    pageLabel: 'Page coming soon',
+    pageLabel: 'View the case study',
   },
 ]
 
@@ -444,11 +445,11 @@ export const modelsPage: RoadmapPage = {
 
 export const financePage: RoadmapPage = {
   eyebrow: 'Financial analysis',
-  title: 'Research, models &',
+  title: 'Dashboards &',
   titleAccent: 'market notes.',
   description:
-    'Where the financial analyst bootcamp and the quant path will be documented — fundamentals research, financial models, and eventually backtested strategy work. This page fills in as each piece is finished.',
-  statusLabel: 'First entries landing soon',
+    'A growing shelf of finance builds — retail crypto flows, exchange-rate economics, and the models behind them. Pick a dashboard to read the case study, or see what is next on the roadmap.',
+  statusLabel: '1 dashboard live',
   note: 'Ready before this is: the DeFi protocols on the projects page, which are the same markets in code form.',
   items: [
     {
@@ -478,6 +479,330 @@ export const financePage: RoadmapPage = {
     description:
       'I am looking for real problems to sharpen the analysis against — not just textbook exercises.',
     primary: 'Get in touch',
+  },
+}
+
+export type FinanceMetric = {
+  index: string
+  value: string
+  label: string
+  note: string
+}
+
+export type FinanceObjective = {
+  index: string
+  title: string
+  description: string
+}
+
+export type FinanceStage = {
+  index: string
+  label: string
+  detail: string
+}
+
+export type FinanceFinding = {
+  figure: string
+  label: string
+  description: string
+}
+
+export type FinanceBuildNote = {
+  title: string
+  points: string[]
+}
+
+export type PlatformRow = {
+  platform: string
+  fxRate: string
+  exchangeRate: string
+  spread: string
+  fees: string
+}
+
+export type FinanceDashboard = {
+  id: string
+  title: string
+  description: string
+  image: string
+  year: string
+  format: string
+  tags: string[]
+  status: 'live' | 'in-build'
+  href: string
+}
+
+export type FinanceCaseStudy = {
+  id: string
+  eyebrow: string
+  headline: string
+  headlineAccent: string
+  title: string
+  subtitle: string
+  year: string
+  statusLabel: string
+  summary: string
+  previewNote: string
+  stack: string[]
+  image: string
+  imageAlt: string
+  fileLabel: string
+  linkedinUrl: string
+  meta: { label: string; value: string }[]
+  metrics: FinanceMetric[]
+  brief: { description: string; objectives: FinanceObjective[] }
+  pipeline: {
+    description: string
+    stages: FinanceStage[]
+    formula: string
+    formulaNote: string
+  }
+  findings: { description: string; items: FinanceFinding[] }
+  platformTable: {
+    description: string
+    headings: string[]
+    rows: PlatformRow[]
+    total: PlatformRow
+    note: string
+  }
+  buildNotes: { description: string; notes: FinanceBuildNote[] }
+  lesson: { title: string; body: string }
+}
+
+export const financeDashboards: FinanceDashboard[] = [
+  {
+    id: 'CASE-001',
+    title: 'Nigeria Crypto 2026',
+    description:
+      'Retail crypto flows, platform spreads, and state-level volume proxies across 293 transactions — pulled from the CoinGecko API, modelled in Excel, and wired with a currency toggle.',
+    image: cryptoNigeriaImage,
+    year: '2026',
+    format: 'Excel · VBA',
+    tags: ['Python', 'Power Query', 'VBA'],
+    status: 'live',
+    href: '/finance/nigeria-crypto-2026',
+  },
+]
+
+export const financeCaseStudy: FinanceCaseStudy = {
+  id: 'CASE-001',
+  eyebrow: 'Financial analysis · Case study 01',
+  headline: 'Nigeria Crypto 2026,',
+  headlineAccent: 'a retail market in one workbook.',
+  title: 'Nigeria Crypto 2026',
+  subtitle: 'Interactive transaction dashboard',
+  year: '2026',
+  statusLabel: 'Complete',
+  summary:
+    'An end-to-end analytics build tracking retail crypto usage, exchange rates, platform spreads, and regional volume proxies in Nigeria across 293 transactions worth ₦95.6M.',
+  previewNote:
+    'This is a static preview of the Excel build. The LinkedIn post covers the build and the VBA currency toggle in more detail.',
+  stack: ['Python', 'pandas', 'CoinGecko API', 'Power Query', 'Excel', 'VBA', 'PowerPoint'],
+  image: cryptoNigeriaImage,
+  imageAlt:
+    'Nigeria Crypto 2026 dashboard in Excel showing ₦95,588,289.57 total amount, ₦773,922.97 total fees, 293 transactions, asset allocation, transaction types, state breakdown, and a platform summary table',
+  fileLabel: 'nigeria_crypto_2026.xlsm',
+  linkedinUrl: 'https://lnkd.in/p/eBGfVeGu',
+  meta: [
+    { label: 'Role', value: 'Data, model, UI — solo build' },
+    { label: 'Tools', value: 'Python · Excel · Power Query · VBA' },
+    { label: 'Data source', value: 'CoinGecko API + fiat rates' },
+    { label: 'Scope', value: '5 platforms · 6 states · 4 txn types' },
+  ],
+  metrics: [
+    {
+      index: '01',
+      value: '₦95.59M',
+      label: 'Total transacted',
+      note: '₦95,588,289.57 across five platforms and every transaction type in the model.',
+    },
+    {
+      index: '02',
+      value: '₦773,922.97',
+      label: 'Platform fees',
+      note: 'The naira cost of the gap between quoted FX and settled exchange rates.',
+    },
+    {
+      index: '03',
+      value: '293',
+      label: 'Transactions modelled',
+      note: 'P2P buys, P2P sells, direct deposits, and withdrawals.',
+    },
+    {
+      index: '04',
+      value: '11.03%',
+      label: 'Blended spread',
+      note: 'Weighted across Binance P2P, Busha, Bybit, Noones, and Yellow Card.',
+    },
+  ],
+  brief: {
+    description:
+      'Nigeria does not trade crypto the way global charts imply. Volume moves through P2P desks, mobile money, and a naira that keeps repricing against the dollar. I wanted one view that held all three at once instead of a folder of disconnected screenshots.',
+    objectives: [
+      {
+        index: '01',
+        title: 'Pull and structure the market data',
+        description:
+          'Query CoinGecko for USDT, BTC, and ETH prices, market caps, and 24-hour volume, plus USD→NGN rates, then land it in clean, reusable CSVs.',
+      },
+      {
+        index: '02',
+        title: 'Make both currencies first-class',
+        description:
+          'Build a dashboard where naira and dollars are equally legible — one toggle flips every KPI, chart, and title, with no duplicated worksheets.',
+      },
+      {
+        index: '03',
+        title: 'Read the flow, not just the total',
+        description:
+          'Break volume down by platform, transaction type, and state so the dashboard answers who is moving money, through which rail, and where.',
+      },
+    ],
+  },
+  pipeline: {
+    description:
+      'Six stages separate the raw API response from the workbook an analyst actually clicks. Each hand-off narrows the data and adds a decision.',
+    stages: [
+      {
+        index: '01',
+        label: 'CoinGecko API',
+        detail:
+          'Asset prices, market caps, 24-hour volume, and USD→NGN rates pulled through the public endpoints.',
+      },
+      {
+        index: '02',
+        label: 'Python · pandas',
+        detail:
+          'Requests fetch, pandas reshapes, and the script writes raw CSVs before anything touches a spreadsheet.',
+      },
+      {
+        index: '03',
+        label: 'Power Query',
+        detail:
+          'Timestamp cleanup, type enforcement, and missing values handled once, at import, not by hand later.',
+      },
+      {
+        index: '04',
+        label: 'Excel model',
+        detail:
+          'Named ranges, SUMIFS, and XLOOKUP carry the aggregation behind each card and chart.',
+      },
+      {
+        index: '05',
+        label: 'PowerPoint UI',
+        detail:
+          'Card containers wireframed first, exported as a high-resolution canvas for the workbook background.',
+      },
+      {
+        index: '06',
+        label: 'VBA layer',
+        detail:
+          'Currency toggle, active-button state, and dynamic chart titles turn the model into something usable.',
+      },
+    ],
+    formula: 'Amount_NGN = Amount_USD × Exchange_Rate_NGN',
+    formulaNote:
+      'Naira values are derived, never typed. Each USD amount is multiplied by the exchange rate held in the model, so a rate update reprices the whole dashboard at once.',
+  },
+  findings: {
+    description:
+      'The numbers that changed how I read the market. Stablecoins, not Bitcoin, are the working currency; two commercial centres carry most of the flow; and P2P is the rail, not the alternative.',
+    items: [
+      {
+        figure: '52%',
+        label: 'USDT share of volume',
+        description:
+          'Tether dominates at 52% versus BTC at 30% and ETH at 18%. The demand looks like dollar hedging against naira depreciation, not a directional crypto trade.',
+      },
+      {
+        figure: '39.78%',
+        label: 'Lagos share of volume',
+        description:
+          'Lagos carries nearly two-fifths of all activity, with Abuja (FCT) second at 19.40%. Oyo, Kano, Rivers, Delta, and Enugu trail in single digits.',
+      },
+      {
+        figure: '58%',
+        label: 'Volume routed through P2P',
+        description:
+          'P2P buys and sells outweigh direct deposits and withdrawals combined. The retail flow lives on the desks, which is where the spread economics are set.',
+      },
+    ],
+  },
+  platformTable: {
+    description:
+      'Spread is the distance between the FX rate a platform quotes and the exchange rate it settles at. Across 293 transactions it barely moves — the platforms compete on liquidity, not headline pricing.',
+    headings: ['Platform', 'FX rate', 'Exchange rate', 'Spread', 'Fees'],
+    rows: [
+      {
+        platform: 'Binance P2P',
+        fxRate: '₦1,350.98',
+        exchangeRate: '₦1,498.46',
+        spread: '10.92%',
+        fees: '₦174,101.25',
+      },
+      {
+        platform: 'Busha',
+        fxRate: '₦1,350.49',
+        exchangeRate: '₦1,498.29',
+        spread: '10.94%',
+        fees: '₦150,658.15',
+      },
+      {
+        platform: 'Bybit',
+        fxRate: '₦1,351.83',
+        exchangeRate: '₦1,499.26',
+        spread: '10.91%',
+        fees: '₦132,634.25',
+      },
+      {
+        platform: 'Noones',
+        fxRate: '₦1,351.10',
+        exchangeRate: '₦1,505.80',
+        spread: '11.45%',
+        fees: '₦136,200.44',
+      },
+      {
+        platform: 'Yellow Card',
+        fxRate: '₦1,351.19',
+        exchangeRate: '₦1,499.60',
+        spread: '10.98%',
+        fees: '₦180,328.88',
+      },
+    ],
+    total: {
+      platform: 'All platforms',
+      fxRate: '₦1,351.09',
+      exchangeRate: '₦1,500.16',
+      spread: '11.03%',
+      fees: '₦773,922.97',
+    },
+    note: 'Noones quotes the widest spread at 11.45% and Yellow Card collects the largest fee total, but every desk sits within half a point of the blended rate.',
+  },
+  buildNotes: {
+    description:
+      'Two decisions did most of the work: designing the layout before opening Excel, and treating the currency switch as a product feature rather than a formula.',
+    notes: [
+      {
+        title: 'UI first, spreadsheet second',
+        points: [
+          'Card containers were wireframed in PowerPoint before a single chart was placed.',
+          'The finished template was exported as a background canvas, so charts sat inside a designed grid instead of on raw cells.',
+          'A state map lost to a ranked horizontal bar chart — six states read faster as bars than as shapes.',
+        ],
+      },
+      {
+        title: 'VBA as the interactive layer',
+        points: [
+          'One macro toggles every card and chart between naira and dollars.',
+          'Event-driven fill changes give the active currency button a real pressed state.',
+          'Chart titles rewrite themselves, so a screenshot never lies about its currency.',
+        ],
+      },
+    ],
+  },
+  lesson: {
+    title: 'A crash at 40%, and a cleaner second build.',
+    body: 'A system crash wiped roughly 40% of the first dashboard. Rebuilding it became active recall: the second pass finished in a fraction of the time, with named ranges, tidier macro logic, and a layout I could defend. The lost file was annoying. The rebuilt one was better.',
   },
 }
 

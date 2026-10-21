@@ -61,7 +61,7 @@ function Audits() {
       <main className="pt-20">
         <MarqueeBand items={tickerItems} />
 
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-14 md:px-12">
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-12 md:px-12">
           <header className="mb-14 grid items-end gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="mb-5 flex items-center gap-3">
@@ -70,12 +70,12 @@ function Audits() {
                   {auditsPage.eyebrow}
                 </span>
               </div>
-              <h1 className="mb-6 font-display text-4xl font-bold leading-[1.1] tracking-tight text-ink md:text-6xl">
+              <h1 className="mb-6 font-display text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-5xl">
                 {auditsPage.title}
                 <br />
                 <span className="text-accent">{auditsPage.titleAccent}</span>
               </h1>
-              <p className="max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
+              <p className="max-w-2xl text-base leading-relaxed text-ink-muted">
                 {auditsPage.description}
               </p>
             </div>
@@ -235,7 +235,7 @@ function Audits() {
             </p>
           </Reveal>
 
-          <section className="mt-20 grid gap-10 border-t border-line/15 pt-14 md:grid-cols-3 md:gap-12">
+          <section className="mt-16 grid gap-10 border-t border-line/15 pt-12 md:grid-cols-3 md:gap-12">
             {auditsPage.highlights.map((highlight, index) => {
               const Icon = highlightIconMap[highlight.icon]
 

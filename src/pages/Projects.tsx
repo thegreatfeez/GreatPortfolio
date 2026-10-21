@@ -49,7 +49,7 @@ function Projects() {
       <main className="pt-20">
         <MarqueeBand items={tickerItems} />
 
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-14 md:px-12">
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-12 md:px-12">
           <header className="mb-16 max-w-3xl">
             <div className="mb-5 flex items-center gap-3">
               <span aria-hidden="true" className="h-px w-8 bg-line" />
@@ -57,12 +57,12 @@ function Projects() {
                 {projectsPage.eyebrow}
               </span>
             </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-[1.05] tracking-tight text-ink md:text-6xl">
+            <h1 className="mb-6 font-display text-3xl font-bold leading-[1.05] tracking-tight text-ink md:text-5xl">
               {projectsPage.title}
               <br />
               <span className="text-accent">{projectsPage.titleAccent}</span>
             </h1>
-            <p className="text-base leading-relaxed text-ink-muted md:text-lg">
+            <p className="text-base leading-relaxed text-ink-muted">
               {projectsPage.description}
             </p>
           </header>
@@ -158,7 +158,7 @@ function Projects() {
             })}
           </section>
 
-          <Reveal className="mt-20 border-t border-line/15 pt-14">
+          <Reveal className="mt-16 border-t border-line/15 pt-12">
             <h2 className="mb-4 font-display text-2xl font-bold text-ink md:text-3xl">
               {projectsPage.cta.title}
             </h2>

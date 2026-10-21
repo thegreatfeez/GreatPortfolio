@@ -42,7 +42,7 @@ function FooterLink({ href, label, external, icon }: FooterLinkType) {
 function Footer() {
   return (
     <footer id="contact">
-      <Reveal className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-24">
+      <Reveal className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
         <div className="flex items-center gap-3">
           <span aria-hidden="true" className="h-px w-8 bg-line" />
           <span className="font-mono text-[0.6875rem] uppercase tracking-[0.3em] text-mint">
@@ -50,7 +50,7 @@ function Footer() {
           </span>
         </div>
 
-        <h2 className="mt-5 mb-5 max-w-3xl font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-5xl">
+        <h2 className="mt-5 mb-5 max-w-3xl font-display text-2xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
           {contact.title}
         </h2>
         <p className="mb-9 max-w-2xl text-base leading-relaxed text-ink-muted">

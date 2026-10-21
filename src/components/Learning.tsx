@@ -4,7 +4,7 @@ import SectionHeading from './SectionHeading'
 
 function Learning() {
   return (
-    <section className="px-6 py-20 md:px-12" id="learning">
+    <section className="px-6 py-16 md:px-12" id="learning">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           description={learningHeading.description}

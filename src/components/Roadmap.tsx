@@ -39,7 +39,7 @@ function Roadmap({ page, tickerItems, placeholderLabel }: RoadmapProps) {
       <main className="pt-20">
         <MarqueeBand items={tickerItems} />
 
-        <div className="mx-auto max-w-7xl px-6 pb-24 pt-14 md:px-12">
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-12 md:px-12">
           <header className="grid items-end gap-8 lg:grid-cols-12">
             <div className="lg:col-span-8">
               <div className="mb-5 flex items-center gap-3">
@@ -48,12 +48,12 @@ function Roadmap({ page, tickerItems, placeholderLabel }: RoadmapProps) {
                   {page.eyebrow}
                 </span>
               </div>
-              <h1 className="mb-6 font-display text-4xl font-bold leading-[1.1] tracking-tight text-ink md:text-6xl">
+              <h1 className="mb-6 font-display text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-5xl">
                 {page.title}
                 <br />
                 <span className="text-accent">{page.titleAccent}</span>
               </h1>
-              <p className="max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
+              <p className="max-w-2xl text-base leading-relaxed text-ink-muted">
                 {page.description}
               </p>
             </div>
@@ -121,7 +121,7 @@ function Roadmap({ page, tickerItems, placeholderLabel }: RoadmapProps) {
             </p>
           </Reveal>
 
-          <Reveal className="mt-20 border-t border-line/15 pt-14">
+          <Reveal className="mt-16 border-t border-line/15 pt-12">
             <h2 className="mb-4 font-display text-2xl font-bold text-ink md:text-3xl">
               {page.cta.title}
             </h2>

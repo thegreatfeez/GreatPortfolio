@@ -18,7 +18,7 @@ function SectionHeading({ eyebrow, title, description, action }: SectionHeadingP
             {eyebrow}
           </span>
         </div>
-        <h2 className="mb-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
+        <h2 className="mb-4 font-display text-2xl font-bold leading-tight tracking-tight text-ink md:text-3xl">
           {title}
         </h2>
         {description ? (

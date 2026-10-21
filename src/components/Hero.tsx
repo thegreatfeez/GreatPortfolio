@@ -14,7 +14,7 @@ function Hero() {
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      <Stagger className="mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-14 md:grid-cols-12 md:px-12 md:pb-24 md:pt-20">
+      <Stagger className="mx-auto grid max-w-7xl gap-12 px-6 pb-14 pt-12 md:grid-cols-12 md:px-12 md:pb-20 md:pt-16">
         <StaggerItem className="md:col-span-7">
           <div className="mb-6 flex items-center gap-3">
             <span aria-hidden="true" className="h-px w-10 bg-line" />
@@ -23,11 +23,11 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="mb-6 max-w-3xl font-display text-4xl font-bold leading-[1.1] tracking-tight text-ink md:text-[3.5rem]">
+          <h1 className="mb-6 max-w-3xl font-display text-3xl font-bold leading-[1.1] tracking-tight text-ink md:text-5xl">
             {site.headline} <span className="text-accent">{site.headlineAccent}</span>
           </h1>
 
-          <p className="mb-9 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
+          <p className="mb-9 max-w-2xl text-base leading-relaxed text-ink-muted">
             {site.summary}
           </p>
 
